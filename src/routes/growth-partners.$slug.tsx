@@ -82,7 +82,7 @@ function CampaignPage() {
         eyebrow="Founding partner offer"
         headline="The complete arrangement."
         body="Reduced initial risk in exchange for real commitment."
-        items={campaign.offerStack.map((o) => o.title)}
+        items={campaign.offerStack.map((o: { title: string }) => o.title)}
         clarifications={campaign.scopeNotes}
       />
 
