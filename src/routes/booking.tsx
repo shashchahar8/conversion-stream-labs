@@ -27,10 +27,27 @@ function Booking() {
                 Confirm your audit conversation.
               </h1>
               <p className="mt-6 text-muted-foreground">
-                The calendar embed is added by Codex once the scheduling integration is configured.
+                Complete the short qualification form. If the engagement looks aligned, we will
+                reply with available audit times.
               </p>
-              <div className="mt-10 aspect-video rounded-2xl border border-dashed border-border bg-mist/50 flex items-center justify-center text-sm text-muted-foreground">
-                Calendar embed placeholder
+              <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                  What happens next
+                </p>
+                <ol className="mt-5 space-y-4 text-sm">
+                  <li>
+                    <span className="mr-3 text-accent">01</span>We review your current growth
+                    constraint.
+                  </li>
+                  <li>
+                    <span className="mr-3 text-accent">02</span>Qualified applicants receive
+                    available times.
+                  </li>
+                  <li>
+                    <span className="mr-3 text-accent">03</span>The audit focuses on the
+                    highest-impact system gaps.
+                  </li>
+                </ol>
               </div>
             </div>
             <div className="lg:col-span-7">

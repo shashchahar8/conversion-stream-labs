@@ -35,7 +35,6 @@ export interface IndustryConfig {
   capabilityIds: CapabilitySlug[];
   qualification: string[];
   exclusions: string[];
-  proofPlaceholder: string;
   faqIds: string[];
   complianceNote?: string;
   formDefinitionId: string;
@@ -77,6 +76,9 @@ export interface CaseStudy {
   title: string;
   industry: string;
   summary: string;
+  channel: string;
+  investment: string;
+  result: string;
   status: "verified" | "pending-approval";
 }
 

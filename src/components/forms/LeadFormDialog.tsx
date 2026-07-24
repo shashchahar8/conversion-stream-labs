@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { LeadForm } from "./LeadForm";
 import type { FormPlacement } from "@/types/lead";
 
@@ -10,10 +16,16 @@ interface LeadFormDialogProps {
   industryId?: string;
 }
 
-export function LeadFormDialog({ open, onOpenChange, placement, campaignId, industryId }: LeadFormDialogProps) {
+export function LeadFormDialog({
+  open,
+  onOpenChange,
+  placement,
+  campaignId,
+  industryId,
+}: LeadFormDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-2xl">
+      <DialogContent className="max-h-[calc(100dvh-2rem)] overflow-y-auto sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle className="font-display text-2xl">Book a Growth Systems Audit</DialogTitle>
           <DialogDescription>

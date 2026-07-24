@@ -19,7 +19,10 @@ export const industries: IndustryConfig[] = [
     headline: "Growth systems for allied health clinics that respect the clinical setting.",
     subheadline:
       "Predictable booked appointments through connected acquisition, conversion and follow-up — without discount marketing.",
-    primaryCta: { label: "Apply for the Clinic Growth Systems Audit", href: "/growth-partners/physiotherapy-and-podiatry" },
+    primaryCta: {
+      label: "Apply for the Clinic Growth Systems Audit",
+      href: "/growth-partners/physiotherapy-and-podiatry",
+    },
     secondaryCta: { label: "See how the system works", href: "/growth-systems" },
     commercialProblem:
       "Most allied health clinics rely on a mix of referrals, directories and inconsistent advertising. When any single source dips, the diary follows.",
@@ -34,7 +37,14 @@ export const industries: IndustryConfig[] = [
       "New locations take too long to fill",
       "Advertising results attributed only to gut feel",
     ],
-    systemStages: ["Attention", "Consideration", "Enquiry", "Qualification", "Booking", "Retention"],
+    systemStages: [
+      "Attention",
+      "Consideration",
+      "Enquiry",
+      "Qualification",
+      "Booking",
+      "Retention",
+    ],
     capabilityIds: [...commonCapabilities],
     qualification: [
       "Established multi-practitioner clinic",
@@ -45,7 +55,6 @@ export const industries: IndustryConfig[] = [
       "Solo practitioners exploring first marketing spend",
       "Clinics unwilling to update booking workflows",
     ],
-    proofPlaceholder: "Verified allied-health case study required.",
     faqIds: ["global-what", "global-how-measured", "regulated-industries"],
     complianceNote:
       "We do not collect patient information through the Stonehurst Lane website. All marketing complies with Ahpra and AHPRA-adjacent advertising guidelines.",
@@ -66,7 +75,10 @@ export const industries: IndustryConfig[] = [
     headline: "Growth systems for premium skin and aesthetic clinics.",
     subheadline:
       "Full-diary clinics attract the right clientele through positioning, not perpetual discounting.",
-    primaryCta: { label: "Apply for the Beauty Clinic Growth Audit", href: "/growth-partners/beauty-clinics" },
+    primaryCta: {
+      label: "Apply for the Beauty Clinic Growth Audit",
+      href: "/growth-partners/beauty-clinics",
+    },
     commercialProblem:
       "The beauty vertical is saturated with discount marketing. Premium operators need positioning, offer design and disciplined follow-up — not another 20% off promotion.",
     painPoints: [
@@ -80,17 +92,20 @@ export const industries: IndustryConfig[] = [
       "Retention below what the service level deserves",
       "Growth capped by inconsistent enquiry quality",
     ],
-    systemStages: ["Attention", "Consideration", "Consultation", "Booking", "Retention", "Referral"],
+    systemStages: [
+      "Attention",
+      "Consideration",
+      "Consultation",
+      "Booking",
+      "Retention",
+      "Referral",
+    ],
     capabilityIds: [...commonCapabilities],
     qualification: [
       "Established clinic with clinical or premium positioning",
       "Willingness to invest in brand-appropriate creative",
     ],
-    exclusions: [
-      "Deal-of-the-day operators",
-      "New clinics before regulatory setup",
-    ],
-    proofPlaceholder: "Verified beauty-clinic case study required.",
+    exclusions: ["Deal-of-the-day operators", "New clinics before regulatory setup"],
     faqIds: ["global-what", "regulated-industries"],
     complianceNote:
       "Advertising for cosmetic and injectable services complies with TGA and AHPRA guidelines.",
@@ -111,7 +126,10 @@ export const industries: IndustryConfig[] = [
     headline: "Growth systems for dental practices that value case quality, not just volume.",
     subheadline:
       "Attract, qualify and convert higher-value cases through a connected system across acquisition, conversion and follow-up.",
-    primaryCta: { label: "Apply for the Dental Growth Systems Audit", href: "/growth-partners/dental-practices" },
+    primaryCta: {
+      label: "Apply for the Dental Growth Systems Audit",
+      href: "/growth-partners/dental-practices",
+    },
     commercialProblem:
       "Dental marketing is dominated by whitening promotions and check-up specials. Practices with cosmetic, implant or specialist ambitions need a different system entirely.",
     painPoints: [
@@ -130,7 +148,6 @@ export const industries: IndustryConfig[] = [
       "Capacity to book qualified new patients",
     ],
     exclusions: ["Startups pre-fit-out", "Practices unwilling to update intake workflow"],
-    proofPlaceholder: "Verified dental case study required.",
     faqIds: ["global-what", "regulated-industries"],
     complianceNote:
       "Dental advertising complies with Ahpra guidelines and the Dental Board of Australia code of conduct.",
@@ -151,7 +168,10 @@ export const industries: IndustryConfig[] = [
     headline: "Pipeline systems for firms that need better matters, not just more calls.",
     subheadline:
       "Position, qualify and route legal enquiries so senior time is spent on the matters that actually move the practice forward.",
-    primaryCta: { label: "Apply for the Legal Pipeline Audit", href: "/growth-partners/legal-and-conveyancing" },
+    primaryCta: {
+      label: "Apply for the Legal Pipeline Audit",
+      href: "/growth-partners/legal-and-conveyancing",
+    },
     commercialProblem:
       "Legal websites either look like brochures or like directory clones. Neither is built to convert qualified enquiries.",
     painPoints: [
@@ -170,7 +190,6 @@ export const industries: IndustryConfig[] = [
       "Willingness to route intake through a defined process",
     ],
     exclusions: ["Sole practitioners with no intake support"],
-    proofPlaceholder: "Verified legal case study required.",
     faqIds: ["global-what", "regulated-industries"],
     complianceNote:
       "Advertising complies with the applicable Legal Profession Uniform Rules in each jurisdiction.",
@@ -191,7 +210,10 @@ export const industries: IndustryConfig[] = [
     headline: "Pipeline systems for firms building advisory-led practices.",
     subheadline:
       "Position and qualify enquiries so the pipeline reflects the practice the partners want to build, not the practice they inherited.",
-    primaryCta: { label: "Apply for the Advisory Pipeline Audit", href: "/growth-partners/accounting-and-bookkeeping" },
+    primaryCta: {
+      label: "Apply for the Advisory Pipeline Audit",
+      href: "/growth-partners/accounting-and-bookkeeping",
+    },
     commercialProblem:
       "Accounting firms typically grow through referrals until the referrer network stalls. Building a repeatable pipeline requires positioning, packaging and system.",
     painPoints: [
@@ -199,22 +221,20 @@ export const industries: IndustryConfig[] = [
       "Partners uncertain how to package advisory services",
       "No system for outbound or nurture",
     ],
-    consequences: [
-      "Slow migration to advisory revenue",
-      "Growth capped by partner network",
-    ],
+    consequences: ["Slow migration to advisory revenue", "Growth capped by partner network"],
     systemStages: ["Attention", "Consideration", "Enquiry", "Discovery", "Onboarding"],
     capabilityIds: [...commonCapabilities],
-    qualification: ["Established firm with advisory ambition", "Willingness to define productised services"],
+    qualification: [
+      "Established firm with advisory ambition",
+      "Willingness to define productised services",
+    ],
     exclusions: ["Firms unwilling to package or price services"],
-    proofPlaceholder: "Verified accounting case study required.",
     faqIds: ["global-what"],
     formDefinitionId: "default-lead-form",
     campaignId: "accounting-and-bookkeeping",
     seo: {
       title: "Accounting & Bookkeeping Growth Systems | Stonehurst Lane",
-      description:
-        "Pipeline systems for firms migrating toward advisory-led revenue.",
+      description: "Pipeline systems for firms migrating toward advisory-led revenue.",
     },
   },
   {
@@ -229,13 +249,21 @@ export const industries: IndustryConfig[] = [
     primaryCta: { label: "Apply for the Broker Pipeline Audit", href: "/growth-partners/brokers" },
     commercialProblem:
       "Broker enquiries are commoditised by comparison sites. Sustainable growth requires a positioning and system that surfaces the right buyer, then converts them fast.",
-    painPoints: ["Slow response losing deals to competitors", "Rate-shopper enquiries dominating pipeline"],
-    consequences: ["Settled volume dictated by comparison-site whims", "Team burnout on low-quality enquiries"],
+    painPoints: [
+      "Slow response losing deals to competitors",
+      "Rate-shopper enquiries dominating pipeline",
+    ],
+    consequences: [
+      "Settled volume dictated by comparison-site whims",
+      "Team burnout on low-quality enquiries",
+    ],
     systemStages: ["Attention", "Consideration", "Enquiry", "Fact Find", "Settlement"],
     capabilityIds: [...commonCapabilities],
-    qualification: ["Established broker with lender panel access", "Capacity for additional applications"],
+    qualification: [
+      "Established broker with lender panel access",
+      "Capacity for additional applications",
+    ],
     exclusions: ["New brokers pre-accreditation"],
-    proofPlaceholder: "Verified broker case study required.",
     faqIds: ["global-what", "regulated-industries"],
     complianceNote:
       "Advertising complies with ASIC guidance for credit-representative and financial-services advertising.",
@@ -256,7 +284,10 @@ export const industries: IndustryConfig[] = [
     headline: "Growth systems for NDIS providers that respect participants and compliance.",
     subheadline:
       "Fill capacity with well-matched participants through a compliant, dignified acquisition and intake system.",
-    primaryCta: { label: "Apply for the NDIS Provider Growth Audit", href: "/growth-partners/ndis-providers" },
+    primaryCta: {
+      label: "Apply for the NDIS Provider Growth Audit",
+      href: "/growth-partners/ndis-providers",
+    },
     commercialProblem:
       "NDIS marketing sits between clinical care, compliance and commercial pressure. Most providers rely on Support Coordinators and inconsistent digital presence.",
     painPoints: [
@@ -275,7 +306,6 @@ export const industries: IndustryConfig[] = [
       "Capacity for additional well-matched participants",
     ],
     exclusions: ["Providers unable to demonstrate compliance readiness"],
-    proofPlaceholder: "Verified NDIS provider case study required.",
     faqIds: ["global-what", "regulated-industries"],
     complianceNote:
       "All marketing complies with NDIS Practice Standards and the NDIS Commission advertising guidance.",
@@ -283,8 +313,7 @@ export const industries: IndustryConfig[] = [
     campaignId: "ndis-providers",
     seo: {
       title: "NDIS Provider Growth Systems | Stonehurst Lane",
-      description:
-        "Compliant, dignified growth systems for registered NDIS providers.",
+      description: "Compliant, dignified growth systems for registered NDIS providers.",
     },
   },
   {
@@ -296,7 +325,10 @@ export const industries: IndustryConfig[] = [
     headline: "A shared-upside growth arrangement for a small number of established clinics.",
     subheadline:
       "For clinics with operational, clinical and compliance infrastructure already in place.",
-    primaryCta: { label: "Apply for the Shared-Upside Growth Assessment", href: "/shared-upside/cosmetic-surgery" },
+    primaryCta: {
+      label: "Apply for the Shared-Upside Growth Assessment",
+      href: "/shared-upside/cosmetic-surgery",
+    },
     commercialProblem:
       "Cosmetic surgery clinics operate under heavy compliance, high consult-to-procedure ratios, and long consideration windows. Standard marketing playbooks fail here.",
     painPoints: [
@@ -316,7 +348,6 @@ export const industries: IndustryConfig[] = [
       "CRM and call-tracking already in place or willing to implement",
     ],
     exclusions: ["Providers unwilling to submit content for compliance review"],
-    proofPlaceholder: "Verified cosmetic-surgery arrangement documentation required.",
     faqIds: ["cosmetic-shared-upside", "cosmetic-attribution", "guarantees"],
     complianceNote:
       "All marketing is subject to compliance review against TGA and AHPRA advertising guidance for cosmetic surgery. No patient-facing medical claims are made.",

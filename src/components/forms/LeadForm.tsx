@@ -5,10 +5,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Progress } from "@/components/ui/progress";
 import { Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
-import type { FormDefinition, FormFieldDef, FormPlacement, FormVariant, LeadSubmission } from "@/types/lead";
+import type {
+  FormDefinition,
+  FormFieldDef,
+  FormPlacement,
+  FormVariant,
+  LeadSubmission,
+} from "@/types/lead";
 import { defaultLeadForm, formDefinitions } from "@/config/forms";
 import { useLeadFormState } from "@/hooks/useLeadFormState";
 import { useAttribution } from "@/hooks/useAttribution";
@@ -41,7 +53,9 @@ export function LeadForm({
   compact = false,
   onSuccess,
 }: LeadFormProps) {
-  const definition: FormDefinition = formId ? (formDefinitions[formId] ?? defaultLeadForm) : defaultLeadForm;
+  const definition: FormDefinition = formId
+    ? (formDefinitions[formId] ?? defaultLeadForm)
+    : defaultLeadForm;
   const { values, update } = useLeadFormState(definition.id);
   const [step, setStep] = useState(startAtStep);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -77,20 +91,35 @@ export function LeadForm({
           stepErrors[field.name] = "Required";
         }
       }
-      if (field.type === "email" && typeof value === "string" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      if (
+        field.type === "email" &&
+        typeof value === "string" &&
+        value &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+      ) {
         stepErrors[field.name] = "Enter a valid email";
       }
     }
     setErrors(stepErrors);
     if (Object.keys(stepErrors).length > 0) {
-      analytics({ name: "form_validation_error", formPlacement: placement, formVariant: variant, meta: { step: currentStep.id } });
+      analytics({
+        name: "form_validation_error",
+        formPlacement: placement,
+        formVariant: variant,
+        meta: { step: currentStep.id },
+      });
     }
     return Object.keys(stepErrors).length === 0;
   }
 
   async function handleNext() {
     if (!validateStep()) return;
-    analytics({ name: "form_step_complete", formPlacement: placement, formVariant: variant, meta: { step: currentStep.id } });
+    analytics({
+      name: "form_step_complete",
+      formPlacement: placement,
+      formVariant: variant,
+      meta: { step: currentStep.id },
+    });
     if (isLastStep) {
       await handleSubmit();
     } else {
@@ -101,7 +130,13 @@ export function LeadForm({
   async function handleSubmit() {
     setStatus("submitting");
     setSubmitError(null);
-    analytics({ name: "form_submit", formPlacement: placement, formVariant: variant, campaign: campaignId, industry: industryId });
+    analytics({
+      name: "form_submit",
+      formPlacement: placement,
+      formVariant: variant,
+      campaign: campaignId,
+      industry: industryId,
+    });
 
     const payload: LeadSubmission = {
       contact: {
@@ -145,7 +180,13 @@ export function LeadForm({
     try {
       const res = await submitLead(payload);
       if (res.success) {
-        analytics({ name: "form_submit_success", formPlacement: placement, formVariant: variant, campaign: campaignId, industry: industryId });
+        analytics({
+          name: "form_submit_success",
+          formPlacement: placement,
+          formVariant: variant,
+          campaign: campaignId,
+          industry: industryId,
+        });
         setStatus("success");
         onSuccess?.(res.leadId);
         if (res.nextAction === "redirect" && res.redirectUrl) {
@@ -170,7 +211,8 @@ export function LeadForm({
         <CheckCircle2 className="size-8 text-accent" />
         <h3 className="mt-4 font-display text-2xl">Application received.</h3>
         <p className="mt-2 text-sm text-muted-foreground">
-          Redirecting you now. If nothing happens, we've still got it — expect a reply within one business day.
+          Redirecting you now. If nothing happens, we've still got it — expect a reply within one
+          business day.
         </p>
       </div>
     );
@@ -182,13 +224,18 @@ export function LeadForm({
         e.preventDefault();
         void handleNext();
       }}
-      className={cn("rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm", compact && "p-5 md:p-6")}
+      className={cn(
+        "min-w-0 rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-6 md:p-8",
+        compact && "p-4 sm:p-5 md:p-6",
+      )}
       noValidate
     >
       {definition.steps.length > 1 ? (
         <div className="mb-6">
-          <div className="flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
-            <span>Step {step + 1} of {definition.steps.length} · {currentStep.title}</span>
+          <div className="flex flex-wrap items-center justify-between gap-1 text-xs uppercase tracking-widest text-muted-foreground">
+            <span>
+              Step {step + 1} of {definition.steps.length} · {currentStep.title}
+            </span>
             <span>{progress}%</span>
           </div>
           <Progress value={progress} className="mt-2 h-1" />
@@ -223,10 +270,14 @@ export function LeadForm({
           <Button type="button" variant="ghost" onClick={() => setStep((s) => s - 1)}>
             Back
           </Button>
-        ) : <span />}
+        ) : (
+          <span />
+        )}
         <Button type="submit" disabled={status === "submitting"} className="rounded-full px-6">
           {status === "submitting" ? (
-            <><Loader2 className="mr-2 size-4 animate-spin" /> Submitting</>
+            <>
+              <Loader2 className="mr-2 size-4 animate-spin" /> Submitting
+            </>
           ) : isLastStep ? (
             definition.submitLabel
           ) : (
@@ -276,7 +327,8 @@ function Field({
     return (
       <div>
         <Label htmlFor={id} className="mb-1.5 block text-sm">
-          {field.label}{field.required ? <span className="text-destructive"> *</span> : null}
+          {field.label}
+          {field.required ? <span className="text-destructive"> *</span> : null}
         </Label>
         <Select value={typeof value === "string" ? value : ""} onValueChange={(v) => onChange(v)}>
           <SelectTrigger id={id} aria-invalid={invalid}>
@@ -284,7 +336,9 @@ function Field({
           </SelectTrigger>
           <SelectContent>
             {field.options?.map((opt) => (
-              <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+              <SelectItem key={opt} value={opt}>
+                {opt}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -327,7 +381,8 @@ function Field({
     return (
       <div>
         <Label htmlFor={id} className="mb-1.5 block text-sm">
-          {field.label}{field.required ? <span className="text-destructive"> *</span> : null}
+          {field.label}
+          {field.required ? <span className="text-destructive"> *</span> : null}
         </Label>
         <Textarea
           id={id}
@@ -346,7 +401,8 @@ function Field({
   return (
     <div>
       <Label htmlFor={id} className="mb-1.5 block text-sm">
-        {field.label}{field.required ? <span className="text-destructive"> *</span> : null}
+        {field.label}
+        {field.required ? <span className="text-destructive"> *</span> : null}
       </Label>
       <Input
         id={id}

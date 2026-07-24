@@ -33,7 +33,7 @@ export function HomeHero() {
                 <Link to={site.secondaryCta.href}>{site.secondaryCta.label}</Link>
               </Button>
             </div>
-            <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-border pt-6 text-sm">
+            <dl className="mt-14 grid max-w-lg grid-cols-1 gap-4 border-t border-border pt-6 text-sm min-[420px]:grid-cols-3 min-[420px]:gap-6">
               <div>
                 <dt className="text-muted-foreground">Focus</dt>
                 <dd className="mt-1 font-medium">High-value verticals</dd>

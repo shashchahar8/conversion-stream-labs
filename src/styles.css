@@ -152,15 +152,21 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-feature-settings: "ss01", "cv11";
+    min-width: 20rem;
+    overflow-x: clip;
   }
 
-  h1, h2, h3, .font-display {
+  h1,
+  h2,
+  h3,
+  .font-display {
     font-family: var(--font-display);
     font-optical-sizing: auto;
     letter-spacing: -0.015em;
@@ -170,6 +176,17 @@
     background: var(--gold-soft);
     color: var(--ink);
   }
+
+  @media (max-width: 479px) {
+    h1 {
+      font-size: clamp(2.25rem, 12vw, 2.75rem) !important;
+      overflow-wrap: anywhere;
+    }
+
+    h2 {
+      overflow-wrap: anywhere;
+    }
+  }
 }
 
 @utility container-x {
@@ -177,8 +194,12 @@
   margin-inline: auto;
   padding-inline: 1.25rem;
   max-width: 80rem;
-  @media (min-width: 768px) { padding-inline: 2rem; }
-  @media (min-width: 1280px) { padding-inline: 3rem; }
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 3rem;
+  }
 }
 
 @utility eyebrow {

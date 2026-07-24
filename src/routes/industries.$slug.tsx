@@ -21,7 +21,8 @@ export const Route = createFileRoute("/industries/$slug")({
     return { industry };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Industry not found" }, { name: "robots", content: "noindex" }] };
+    if (!loaderData)
+      return { meta: [{ title: "Industry not found" }, { name: "robots", content: "noindex" }] };
     return buildSeo({
       title: loaderData.industry.seo.title,
       description: loaderData.industry.seo.description,
@@ -68,10 +69,17 @@ function IndustryPage() {
         <Container>
           <div className="grid gap-14 lg:grid-cols-2">
             <div>
-              <SectionHeading eyebrow="The commercial problem" headline="Where growth quietly leaks." body={industry.commercialProblem} />
+              <SectionHeading
+                eyebrow="The commercial problem"
+                headline="Where growth quietly leaks."
+                body={industry.commercialProblem}
+              />
               <ul className="mt-8 space-y-3 border-t border-border">
                 {industry.painPoints.map((p: string) => (
-                  <li key={p} className="border-b border-border py-3"><span className="mr-3 text-accent">—</span>{p}</li>
+                  <li key={p} className="border-b border-border py-3">
+                    <span className="mr-3 text-accent">—</span>
+                    {p}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -79,7 +87,10 @@ function IndustryPage() {
               <SectionHeading eyebrow="Consequences" headline="What it costs the business." />
               <ul className="mt-8 space-y-3 border-t border-border">
                 {industry.consequences.map((p: string) => (
-                  <li key={p} className="border-b border-border py-3"><span className="mr-3 text-accent">—</span>{p}</li>
+                  <li key={p} className="border-b border-border py-3">
+                    <span className="mr-3 text-accent">—</span>
+                    {p}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -89,7 +100,10 @@ function IndustryPage() {
 
       <section className="section-ink py-24 md:py-32">
         <Container>
-          <SectionHeading eyebrow="Growth system" headline={`The ${industry.shortName.toLowerCase()} pipeline, engineered end to end.`} />
+          <SectionHeading
+            eyebrow="Growth system"
+            headline={`The ${industry.shortName.toLowerCase()} pipeline, engineered end to end.`}
+          />
           <div className="mt-12">
             <SystemDiagram stages={industry.systemStages.map((s: string) => ({ name: s }))} />
           </div>
@@ -98,11 +112,21 @@ function IndustryPage() {
 
       <section className="py-24 md:py-32">
         <Container>
-          <SectionHeading eyebrow="Relevant capabilities" headline="What gets built and operated." />
+          <SectionHeading
+            eyebrow="Relevant capabilities"
+            headline="What gets built and operated."
+          />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {relatedCaps.map((c) => (
-              <Link key={c.slug} to="/capabilities/$slug" params={{ slug: c.slug }} className="group rounded-2xl border border-border bg-card p-6 hover:border-foreground/40 transition-colors">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">{c.eyebrow}</p>
+              <Link
+                key={c.slug}
+                to="/capabilities/$slug"
+                params={{ slug: c.slug }}
+                className="group rounded-2xl border border-border bg-card p-6 hover:border-foreground/40 transition-colors"
+              >
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                  {c.eyebrow}
+                </p>
                 <h3 className="mt-3 font-display text-xl">{c.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{c.subheadline}</p>
               </Link>
@@ -117,19 +141,25 @@ function IndustryPage() {
             <div>
               <p className="eyebrow">Qualification</p>
               <ul className="mt-4 space-y-2 text-sm">
-                {industry.qualification.map((q: string) => <li key={q}>— {q}</li>)}
+                {industry.qualification.map((q: string) => (
+                  <li key={q}>— {q}</li>
+                ))}
               </ul>
             </div>
             <div>
               <p className="eyebrow">Not a fit</p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {industry.exclusions.map((q: string) => <li key={q}>— {q}</li>)}
+                {industry.exclusions.map((q: string) => (
+                  <li key={q}>— {q}</li>
+                ))}
               </ul>
             </div>
             <div>
               <p className="eyebrow">Compliance</p>
-              <p className="mt-4 text-sm text-muted-foreground">{industry.complianceNote ?? "All marketing complies with the relevant regulator's guidance."}</p>
-              <p className="mt-6 text-xs text-muted-foreground">Placeholder: {industry.proofPlaceholder}</p>
+              <p className="mt-4 text-sm text-muted-foreground">
+                {industry.complianceNote ??
+                  "All marketing complies with the relevant regulator's guidance."}
+              </p>
             </div>
           </div>
         </Container>
@@ -152,12 +182,21 @@ function IndustryPage() {
                 Apply for the {industry.shortName.toLowerCase()} growth audit.
               </h2>
             </div>
-            <LeadForm placement="bottom" variant="full" industryId={industry.slug} campaignId={industry.campaignId} />
+            <LeadForm
+              placement="bottom"
+              variant="full"
+              industryId={industry.slug}
+              campaignId={industry.campaignId}
+            />
           </div>
         </Container>
       </section>
 
-      <CtaBand headline={industry.primaryCta.label + "."} ctaLabel={industry.primaryCta.label} ctaHref={industry.primaryCta.href} />
+      <CtaBand
+        headline={industry.primaryCta.label + "."}
+        ctaLabel={industry.primaryCta.label}
+        ctaHref={industry.primaryCta.href}
+      />
     </PageShell>
   );
 }

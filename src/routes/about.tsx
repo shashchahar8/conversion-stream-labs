@@ -27,7 +27,9 @@ function About() {
               A full-stack growth operator for serious businesses.
             </h1>
             <p className="mt-6 max-w-2xl text-xl text-muted-foreground">
-              Stonehurst Lane exists to make revenue growth more predictable for ambitious service businesses. We run the full stack because we've seen what happens when it's fragmented.
+              Stonehurst Lane exists to make revenue growth more predictable for ambitious service
+              businesses. We run the full stack because we've seen what happens when it's
+              fragmented.
             </p>
           </div>
         </Container>
@@ -49,7 +51,8 @@ function About() {
                   "Decline arrangements we can't operate well.",
                 ].map((p) => (
                   <li key={p} className="border-b border-border py-4 text-base">
-                    <span className="mr-3 text-accent">—</span>{p}
+                    <span className="mr-3 text-accent">—</span>
+                    {p}
                   </li>
                 ))}
               </ul>
@@ -60,12 +63,31 @@ function About() {
                 Small, senior, hands on.
               </h2>
               <p className="mt-5 text-muted-foreground">
-                Founder photos, team photos and full team bios appear once approved brand assets are supplied. See <a href="/about#assets" className="gold-underline">brand asset status</a>.
+                Strategy and execution stay close together. Engagements are led by senior operators,
+                with specialist support brought in where the system requires it.
               </p>
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {[0, 1, 2, 3].map((i) => (
-                  <div key={i} className="aspect-[4/5] rounded-2xl border border-dashed border-border bg-mist/50 p-4 text-xs text-muted-foreground">
-                    Approved team photo required
+              <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
+                {[
+                  [
+                    "Senior ownership",
+                    "The people shaping the strategy stay accountable for its execution.",
+                  ],
+                  [
+                    "Specialist depth",
+                    "Channel and systems specialists are added around the commercial constraint.",
+                  ],
+                  [
+                    "Clear accountability",
+                    "One connected operating view replaces fragmented supplier handoffs.",
+                  ],
+                  [
+                    "Measured decisions",
+                    "Work is prioritised against pipeline quality and revenue impact.",
+                  ],
+                ].map(([title, body]) => (
+                  <div key={title} className="bg-card p-5">
+                    <h3 className="font-display text-xl">{title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{body}</p>
                   </div>
                 ))}
               </div>
@@ -73,7 +95,11 @@ function About() {
           </div>
         </Container>
       </section>
-      <CtaBand headline="Ready to talk?" ctaLabel={site.primaryCta.label} ctaHref={site.primaryCta.href} />
+      <CtaBand
+        headline="Ready to talk?"
+        ctaLabel={site.primaryCta.label}
+        ctaHref={site.primaryCta.href}
+      />
     </PageShell>
   );
 }

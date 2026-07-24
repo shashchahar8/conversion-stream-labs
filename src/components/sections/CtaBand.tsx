@@ -25,15 +25,26 @@ export function CtaBand({
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="max-w-2xl">
             {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">{headline}</h2>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
+              {headline}
+            </h2>
             {body ? <p className="mt-4 text-muted-foreground">{body}</p> : null}
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-full bg-bone text-ink hover:bg-bone/90">
+          <div className="flex w-full flex-col gap-3 min-[420px]:w-auto min-[420px]:flex-row min-[420px]:flex-wrap">
+            <Button
+              asChild
+              size="lg"
+              className="w-full rounded-full bg-bone text-ink hover:bg-bone/90 min-[420px]:w-auto"
+            >
               <Link to={ctaHref}>{ctaLabel}</Link>
             </Button>
             {secondaryLabel && secondaryHref ? (
-              <Button asChild size="lg" variant="ghost" className="rounded-full text-bone hover:bg-white/10">
+              <Button
+                asChild
+                size="lg"
+                variant="ghost"
+                className="w-full rounded-full text-bone hover:bg-white/10 min-[420px]:w-auto"
+              >
                 <Link to={secondaryHref}>{secondaryLabel}</Link>
               </Button>
             ) : null}
