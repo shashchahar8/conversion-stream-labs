@@ -9,38 +9,380 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as GrowthSystemsRouteImport } from './routes/growth-systems'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookingRouteImport } from './routes/booking'
+import { Route as ApproachRouteImport } from './routes/approach'
+import { Route as ApplyRouteImport } from './routes/apply'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WorkIndexRouteImport } from './routes/work.index'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as CapabilitiesIndexRouteImport } from './routes/capabilities.index'
+import { Route as WorkCaseStudySlugRouteImport } from './routes/work.$caseStudySlug'
+import { Route as ThankYouTypeRouteImport } from './routes/thank-you.$type'
+import { Route as SharedUpsideCosmeticSurgeryRouteImport } from './routes/shared-upside.cosmetic-surgery'
+import { Route as InsightsArticleSlugRouteImport } from './routes/insights.$articleSlug'
+import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
+import { Route as GrowthPartnersSlugRouteImport } from './routes/growth-partners.$slug'
+import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
+import { Route as InsightsCategoryCategorySlugRouteImport } from './routes/insights.category.$categorySlug'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrowthSystemsRoute = GrowthSystemsRouteImport.update({
+  id: '/growth-systems',
+  path: '/growth-systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApproachRoute = ApproachRouteImport.update({
+  id: '/approach',
+  path: '/approach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyRoute = ApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkIndexRoute = WorkIndexRouteImport.update({
+  id: '/work/',
+  path: '/work/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
+  id: '/capabilities/',
+  path: '/capabilities/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkCaseStudySlugRoute = WorkCaseStudySlugRouteImport.update({
+  id: '/work/$caseStudySlug',
+  path: '/work/$caseStudySlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThankYouTypeRoute = ThankYouTypeRouteImport.update({
+  id: '/thank-you/$type',
+  path: '/thank-you/$type',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedUpsideCosmeticSurgeryRoute =
+  SharedUpsideCosmeticSurgeryRouteImport.update({
+    id: '/shared-upside/cosmetic-surgery',
+    path: '/shared-upside/cosmetic-surgery',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const InsightsArticleSlugRoute = InsightsArticleSlugRouteImport.update({
+  id: '/insights/$articleSlug',
+  path: '/insights/$articleSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
+  id: '/industries/$slug',
+  path: '/industries/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrowthPartnersSlugRoute = GrowthPartnersSlugRouteImport.update({
+  id: '/growth-partners/$slug',
+  path: '/growth-partners/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapabilitiesSlugRoute = CapabilitiesSlugRouteImport.update({
+  id: '/capabilities/$slug',
+  path: '/capabilities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsCategoryCategorySlugRoute =
+  InsightsCategoryCategorySlugRouteImport.update({
+    id: '/insights/category/$categorySlug',
+    path: '/insights/category/$categorySlug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/apply': typeof ApplyRoute
+  '/approach': typeof ApproachRoute
+  '/booking': typeof BookingRoute
+  '/contact': typeof ContactRoute
+  '/growth-systems': typeof GrowthSystemsRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/insights/$articleSlug': typeof InsightsArticleSlugRoute
+  '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
+  '/thank-you/$type': typeof ThankYouTypeRoute
+  '/work/$caseStudySlug': typeof WorkCaseStudySlugRoute
+  '/capabilities/': typeof CapabilitiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/work/': typeof WorkIndexRoute
+  '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/apply': typeof ApplyRoute
+  '/approach': typeof ApproachRoute
+  '/booking': typeof BookingRoute
+  '/contact': typeof ContactRoute
+  '/growth-systems': typeof GrowthSystemsRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/insights/$articleSlug': typeof InsightsArticleSlugRoute
+  '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
+  '/thank-you/$type': typeof ThankYouTypeRoute
+  '/work/$caseStudySlug': typeof WorkCaseStudySlugRoute
+  '/capabilities': typeof CapabilitiesIndexRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/insights': typeof InsightsIndexRoute
+  '/work': typeof WorkIndexRoute
+  '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/apply': typeof ApplyRoute
+  '/approach': typeof ApproachRoute
+  '/booking': typeof BookingRoute
+  '/contact': typeof ContactRoute
+  '/growth-systems': typeof GrowthSystemsRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/insights/$articleSlug': typeof InsightsArticleSlugRoute
+  '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
+  '/thank-you/$type': typeof ThankYouTypeRoute
+  '/work/$caseStudySlug': typeof WorkCaseStudySlugRoute
+  '/capabilities/': typeof CapabilitiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/work/': typeof WorkIndexRoute
+  '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/apply'
+    | '/approach'
+    | '/booking'
+    | '/contact'
+    | '/growth-systems'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/capabilities/$slug'
+    | '/growth-partners/$slug'
+    | '/industries/$slug'
+    | '/insights/$articleSlug'
+    | '/shared-upside/cosmetic-surgery'
+    | '/thank-you/$type'
+    | '/work/$caseStudySlug'
+    | '/capabilities/'
+    | '/industries/'
+    | '/insights/'
+    | '/work/'
+    | '/insights/category/$categorySlug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/apply'
+    | '/approach'
+    | '/booking'
+    | '/contact'
+    | '/growth-systems'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/capabilities/$slug'
+    | '/growth-partners/$slug'
+    | '/industries/$slug'
+    | '/insights/$articleSlug'
+    | '/shared-upside/cosmetic-surgery'
+    | '/thank-you/$type'
+    | '/work/$caseStudySlug'
+    | '/capabilities'
+    | '/industries'
+    | '/insights'
+    | '/work'
+    | '/insights/category/$categorySlug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/apply'
+    | '/approach'
+    | '/booking'
+    | '/contact'
+    | '/growth-systems'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/capabilities/$slug'
+    | '/growth-partners/$slug'
+    | '/industries/$slug'
+    | '/insights/$articleSlug'
+    | '/shared-upside/cosmetic-surgery'
+    | '/thank-you/$type'
+    | '/work/$caseStudySlug'
+    | '/capabilities/'
+    | '/industries/'
+    | '/insights/'
+    | '/work/'
+    | '/insights/category/$categorySlug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ApplyRoute: typeof ApplyRoute
+  ApproachRoute: typeof ApproachRoute
+  BookingRoute: typeof BookingRoute
+  ContactRoute: typeof ContactRoute
+  GrowthSystemsRoute: typeof GrowthSystemsRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
+  CapabilitiesSlugRoute: typeof CapabilitiesSlugRoute
+  GrowthPartnersSlugRoute: typeof GrowthPartnersSlugRoute
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
+  InsightsArticleSlugRoute: typeof InsightsArticleSlugRoute
+  SharedUpsideCosmeticSurgeryRoute: typeof SharedUpsideCosmeticSurgeryRoute
+  ThankYouTypeRoute: typeof ThankYouTypeRoute
+  WorkCaseStudySlugRoute: typeof WorkCaseStudySlugRoute
+  CapabilitiesIndexRoute: typeof CapabilitiesIndexRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
+  WorkIndexRoute: typeof WorkIndexRoute
+  InsightsCategoryCategorySlugRoute: typeof InsightsCategoryCategorySlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/growth-systems': {
+      id: '/growth-systems'
+      path: '/growth-systems'
+      fullPath: '/growth-systems'
+      preLoaderRoute: typeof GrowthSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approach': {
+      id: '/approach'
+      path: '/approach'
+      fullPath: '/approach'
+      preLoaderRoute: typeof ApproachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply': {
+      id: '/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof ApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +390,117 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work/': {
+      id: '/work/'
+      path: '/work'
+      fullPath: '/work/'
+      preLoaderRoute: typeof WorkIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capabilities/': {
+      id: '/capabilities/'
+      path: '/capabilities'
+      fullPath: '/capabilities/'
+      preLoaderRoute: typeof CapabilitiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/$caseStudySlug': {
+      id: '/work/$caseStudySlug'
+      path: '/work/$caseStudySlug'
+      fullPath: '/work/$caseStudySlug'
+      preLoaderRoute: typeof WorkCaseStudySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thank-you/$type': {
+      id: '/thank-you/$type'
+      path: '/thank-you/$type'
+      fullPath: '/thank-you/$type'
+      preLoaderRoute: typeof ThankYouTypeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared-upside/cosmetic-surgery': {
+      id: '/shared-upside/cosmetic-surgery'
+      path: '/shared-upside/cosmetic-surgery'
+      fullPath: '/shared-upside/cosmetic-surgery'
+      preLoaderRoute: typeof SharedUpsideCosmeticSurgeryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$articleSlug': {
+      id: '/insights/$articleSlug'
+      path: '/insights/$articleSlug'
+      fullPath: '/insights/$articleSlug'
+      preLoaderRoute: typeof InsightsArticleSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/$slug': {
+      id: '/industries/$slug'
+      path: '/industries/$slug'
+      fullPath: '/industries/$slug'
+      preLoaderRoute: typeof IndustriesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/growth-partners/$slug': {
+      id: '/growth-partners/$slug'
+      path: '/growth-partners/$slug'
+      fullPath: '/growth-partners/$slug'
+      preLoaderRoute: typeof GrowthPartnersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capabilities/$slug': {
+      id: '/capabilities/$slug'
+      path: '/capabilities/$slug'
+      fullPath: '/capabilities/$slug'
+      preLoaderRoute: typeof CapabilitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/category/$categorySlug': {
+      id: '/insights/category/$categorySlug'
+      path: '/insights/category/$categorySlug'
+      fullPath: '/insights/category/$categorySlug'
+      preLoaderRoute: typeof InsightsCategoryCategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ApplyRoute: ApplyRoute,
+  ApproachRoute: ApproachRoute,
+  BookingRoute: BookingRoute,
+  ContactRoute: ContactRoute,
+  GrowthSystemsRoute: GrowthSystemsRoute,
+  PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
+  CapabilitiesSlugRoute: CapabilitiesSlugRoute,
+  GrowthPartnersSlugRoute: GrowthPartnersSlugRoute,
+  IndustriesSlugRoute: IndustriesSlugRoute,
+  InsightsArticleSlugRoute: InsightsArticleSlugRoute,
+  SharedUpsideCosmeticSurgeryRoute: SharedUpsideCosmeticSurgeryRoute,
+  ThankYouTypeRoute: ThankYouTypeRoute,
+  WorkCaseStudySlugRoute: WorkCaseStudySlugRoute,
+  CapabilitiesIndexRoute: CapabilitiesIndexRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
+  WorkIndexRoute: WorkIndexRoute,
+  InsightsCategoryCategorySlugRoute: InsightsCategoryCategorySlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

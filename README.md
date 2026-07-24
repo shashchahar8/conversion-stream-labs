@@ -1,29 +1,30 @@
-# Welcome to your Lovable project
+# Stonehurst Lane
 
-This project was built with [Lovable](https://lovable.dev).
+Full-stack growth partner site. TanStack Start + Tailwind v4 + Lovable Cloud (when enabled).
 
-## Build with Lovable
+## Run
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```
+bun install
+bun run dev
 ```
 
-## Built with
+## Structure
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+- `src/routes/` — file-based routes (see `src/routes/README.md`)
+- `src/content/` — all copy (capabilities, industries, campaigns, homepage, FAQs)
+- `src/components/` — `global`, `navigation`, `sections`, `forms`, `ui` (shadcn)
+- `src/layouts/` — `PageShell`, `CampaignShell`
+- `src/config/` — `site`, `navigation`, `forms`, `analytics`, `routes`
+- `src/services/lead-api.ts` — POST `/api/leads`
+- `src/hooks/` — `useAttribution`, `useAnalytics`, `useLeadFormState`
+
+See [AGENTS.md](./AGENTS.md) for the full working contract for Lovable and Codex, including content rules, compliance notes, and design system conventions.
+
+## GitHub sync
+
+This project is designed to be connected to GitHub via Lovable's two-way sync. From the Lovable editor: **+ menu → GitHub → Connect project**. Once linked, commits pushed from Codex or a local clone flow back into Lovable automatically, and Lovable edits push to GitHub on save.
+
+## Handoff docs
+
+Additional handoff notes for Codex live in [`docs/CODEX-HANDOFF.md`](./docs/CODEX-HANDOFF.md).
