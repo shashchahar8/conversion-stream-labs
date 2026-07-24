@@ -190,15 +190,15 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted-foreground);
-}
 
-@utility eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 1.75rem;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.5;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
+  }
 }
 
 @utility rule-top {
