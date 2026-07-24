@@ -100,7 +100,7 @@ function IndustryPage() {
         <Container>
           <SectionHeading eyebrow="Relevant capabilities" headline="What gets built and operated." />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {relatedCaps.map((c: string) => (
+            {relatedCaps.map((c) => (
               <Link key={c.slug} to="/capabilities/$slug" params={{ slug: c.slug }} className="group rounded-2xl border border-border bg-card p-6 hover:border-foreground/40 transition-colors">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">{c.eyebrow}</p>
                 <h3 className="mt-3 font-display text-xl">{c.name}</h3>
