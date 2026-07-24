@@ -23,7 +23,7 @@ function Terms() {
             <span className="eyebrow">Terms</span>
             <h1 className="mt-6 font-display text-5xl leading-[1.02]">Terms of Use</h1>
             <p className="mt-6 text-muted-foreground">Last updated: pending final legal review.</p>
-            <p className="mt-6">This site is operated by {site.legalName}. Content is provided for informational purposes and does not constitute a commercial offer. Engagement terms are captured in a separate signed agreement.</p>
+            <p className="mt-6">This site is operated by {site.name}. Content is provided for informational purposes and does not constitute a commercial offer. Engagement terms are captured in a separate signed agreement.</p>
             <h2 className="mt-10 font-display text-2xl">No implied claims</h2>
             <p>Any figures, case studies or performance references are examples of prior work and are not projections of future results.</p>
             <h2 className="mt-10 font-display text-2xl">Contact</h2>

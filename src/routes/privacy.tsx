@@ -23,7 +23,7 @@ function Privacy() {
             <span className="eyebrow">Privacy</span>
             <h1 className="mt-6 font-display text-5xl leading-[1.02]">Privacy Policy</h1>
             <p className="mt-6 text-muted-foreground">Last updated: pending final legal review.</p>
-            <p className="mt-6">Stonehurst Lane ({site.legalName}) treats information supplied through this website as confidential commercial information. This document describes what we collect, why, and the rights you retain.</p>
+            <p className="mt-6">Stonehurst Lane ({site.name}) treats information supplied through this website as confidential commercial information. This document describes what we collect, why, and the rights you retain.</p>
             <h2 className="mt-10 font-display text-2xl">Information we collect</h2>
             <p>Details submitted through audit and contact forms — company, role, revenue band, current marketing and stated growth bottleneck. Technical telemetry: page views, referrer, UTM parameters, and coarse device information.</p>
             <h2 className="mt-10 font-display text-2xl">How we use it</h2>

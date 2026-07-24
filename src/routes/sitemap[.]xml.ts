@@ -34,7 +34,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const dynamic: SitemapEntry[] = [
           ...capabilities.map((c) => ({ path: `/capabilities/${c.slug}`, changefreq: "monthly" as const, priority: "0.7" })),
           ...industries.map((i) => ({ path: `/industries/${i.slug}`, changefreq: "monthly" as const, priority: "0.7" })),
-          ...campaigns.filter((c) => c.type === "founding-partner").map((c) => ({ path: `/growth-partners/${c.slug}`, changefreq: "monthly" as const, priority: "0.7" })),
+          ...campaigns.filter((c) => c.campaignType === "founding-growth-partner").map((c) => ({ path: `/growth-partners/${c.slug}`, changefreq: "monthly" as const, priority: "0.7" })),
           ...caseStudies.map((c) => ({ path: `/work/${c.slug}`, changefreq: "monthly" as const, priority: "0.6" })),
           ...insights.map((a) => ({ path: `/insights/${a.slug}`, changefreq: "monthly" as const, priority: "0.5" })),
         ];
