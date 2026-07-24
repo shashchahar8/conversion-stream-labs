@@ -73,7 +73,7 @@ function CapabilityPage() {
         <Container>
           <SectionHeading eyebrow="Inside the system" headline="How this capability connects." body={capability.systemInteraction} />
           <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-white/10 md:grid-cols-2 lg:grid-cols-7">
-            {capability.process.map((p, i) => (
+            {capability.process.map((p: string, i: number) => (
               <div key={p} className="bg-ink p-5">
                 <p className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</p>
                 <p className="mt-2 font-display text-lg">{p}</p>
