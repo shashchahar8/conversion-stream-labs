@@ -74,7 +74,7 @@ function CampaignPage() {
       <section className="section-ink py-20 md:py-28">
         <Container>
           <SectionHeading eyebrow="The system" headline="From attention to revenue as one operation." />
-          <div className="mt-12"><SystemDiagram stages={systemStages.map((s) => ({ name: s }))} /></div>
+          <div className="mt-12"><SystemDiagram stages={systemStages.map((s: string) => ({ name: s }))} /></div>
         </Container>
       </section>
 
@@ -92,13 +92,13 @@ function CampaignPage() {
             <div>
               <p className="eyebrow">Who this is for</p>
               <ul className="mt-4 space-y-2 text-sm">
-                {campaign.qualification.map((q) => <li key={q}>— {q}</li>)}
+                {campaign.qualification.map((q: string) => <li key={q}>— {q}</li>)}
               </ul>
             </div>
             <div>
               <p className="eyebrow">Who should not apply</p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {campaign.exclusions.map((q) => <li key={q}>— {q}</li>)}
+                {campaign.exclusions.map((q: string) => <li key={q}>— {q}</li>)}
               </ul>
             </div>
             <div>

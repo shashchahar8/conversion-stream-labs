@@ -9,38 +9,141 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GrowthSystemsRouteImport } from './routes/growth-systems'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as CapabilitiesIndexRouteImport } from './routes/capabilities.index'
+import { Route as SharedUpsideCosmeticSurgeryRouteImport } from './routes/shared-upside.cosmetic-surgery'
+import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
+import { Route as GrowthPartnersSlugRouteImport } from './routes/growth-partners.$slug'
+import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
 
+const GrowthSystemsRoute = GrowthSystemsRouteImport.update({
+  id: '/growth-systems',
+  path: '/growth-systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
+  id: '/capabilities/',
+  path: '/capabilities/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedUpsideCosmeticSurgeryRoute =
+  SharedUpsideCosmeticSurgeryRouteImport.update({
+    id: '/shared-upside/cosmetic-surgery',
+    path: '/shared-upside/cosmetic-surgery',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
+  id: '/industries/$slug',
+  path: '/industries/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrowthPartnersSlugRoute = GrowthPartnersSlugRouteImport.update({
+  id: '/growth-partners/$slug',
+  path: '/growth-partners/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapabilitiesSlugRoute = CapabilitiesSlugRouteImport.update({
+  id: '/capabilities/$slug',
+  path: '/capabilities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/growth-systems': typeof GrowthSystemsRoute
+  '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
+  '/capabilities/': typeof CapabilitiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/growth-systems': typeof GrowthSystemsRoute
+  '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
+  '/capabilities': typeof CapabilitiesIndexRoute
+  '/industries': typeof IndustriesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/growth-systems': typeof GrowthSystemsRoute
+  '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
+  '/capabilities/': typeof CapabilitiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/growth-systems'
+    | '/capabilities/$slug'
+    | '/growth-partners/$slug'
+    | '/industries/$slug'
+    | '/shared-upside/cosmetic-surgery'
+    | '/capabilities/'
+    | '/industries/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/growth-systems'
+    | '/capabilities/$slug'
+    | '/growth-partners/$slug'
+    | '/industries/$slug'
+    | '/shared-upside/cosmetic-surgery'
+    | '/capabilities'
+    | '/industries'
+  id:
+    | '__root__'
+    | '/'
+    | '/growth-systems'
+    | '/capabilities/$slug'
+    | '/growth-partners/$slug'
+    | '/industries/$slug'
+    | '/shared-upside/cosmetic-surgery'
+    | '/capabilities/'
+    | '/industries/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GrowthSystemsRoute: typeof GrowthSystemsRoute
+  CapabilitiesSlugRoute: typeof CapabilitiesSlugRoute
+  GrowthPartnersSlugRoute: typeof GrowthPartnersSlugRoute
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
+  SharedUpsideCosmeticSurgeryRoute: typeof SharedUpsideCosmeticSurgeryRoute
+  CapabilitiesIndexRoute: typeof CapabilitiesIndexRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/growth-systems': {
+      id: '/growth-systems'
+      path: '/growth-systems'
+      fullPath: '/growth-systems'
+      preLoaderRoute: typeof GrowthSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +151,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capabilities/': {
+      id: '/capabilities/'
+      path: '/capabilities'
+      fullPath: '/capabilities/'
+      preLoaderRoute: typeof CapabilitiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared-upside/cosmetic-surgery': {
+      id: '/shared-upside/cosmetic-surgery'
+      path: '/shared-upside/cosmetic-surgery'
+      fullPath: '/shared-upside/cosmetic-surgery'
+      preLoaderRoute: typeof SharedUpsideCosmeticSurgeryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/$slug': {
+      id: '/industries/$slug'
+      path: '/industries/$slug'
+      fullPath: '/industries/$slug'
+      preLoaderRoute: typeof IndustriesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/growth-partners/$slug': {
+      id: '/growth-partners/$slug'
+      path: '/growth-partners/$slug'
+      fullPath: '/growth-partners/$slug'
+      preLoaderRoute: typeof GrowthPartnersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capabilities/$slug': {
+      id: '/capabilities/$slug'
+      path: '/capabilities/$slug'
+      fullPath: '/capabilities/$slug'
+      preLoaderRoute: typeof CapabilitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GrowthSystemsRoute: GrowthSystemsRoute,
+  CapabilitiesSlugRoute: CapabilitiesSlugRoute,
+  GrowthPartnersSlugRoute: GrowthPartnersSlugRoute,
+  IndustriesSlugRoute: IndustriesSlugRoute,
+  SharedUpsideCosmeticSurgeryRoute: SharedUpsideCosmeticSurgeryRoute,
+  CapabilitiesIndexRoute: CapabilitiesIndexRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

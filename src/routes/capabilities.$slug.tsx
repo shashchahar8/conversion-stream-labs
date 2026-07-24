@@ -52,7 +52,7 @@ function CapabilityPage() {
             <div>
               <SectionHeading eyebrow="The problem" headline="Why this capability matters." body={capability.problem} />
               <ul className="mt-8 space-y-3 border-t border-border">
-                {capability.consequences.map((c) => (
+                {capability.consequences.map((c: string) => (
                   <li key={c} className="border-b border-border py-3 text-base"><span className="mr-3 text-accent">—</span>{c}</li>
                 ))}
               </ul>
@@ -60,7 +60,7 @@ function CapabilityPage() {
             <div>
               <SectionHeading eyebrow="What we implement" headline="What Stonehurst Lane operates." />
               <ul className="mt-8 space-y-3 border-t border-border">
-                {capability.implements.map((c) => (
+                {capability.implements.map((c: string) => (
                   <li key={c} className="border-b border-border py-3 text-base"><span className="mr-3 text-accent">—</span>{c}</li>
                 ))}
               </ul>
@@ -89,19 +89,19 @@ function CapabilityPage() {
             <div>
               <p className="eyebrow">Deliverables</p>
               <ul className="mt-4 space-y-2 text-sm">
-                {capability.deliverables.map((d) => <li key={d}>— {d}</li>)}
+                {capability.deliverables.map((d: string) => <li key={d}>— {d}</li>)}
               </ul>
             </div>
             <div>
               <p className="eyebrow">When it's the right fit</p>
               <ul className="mt-4 space-y-2 text-sm">
-                {capability.useCases.map((d) => <li key={d}>— {d}</li>)}
+                {capability.useCases.map((d: string) => <li key={d}>— {d}</li>)}
               </ul>
             </div>
             <div>
               <p className="eyebrow">When it isn't</p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {capability.notForYou.map((d) => <li key={d}>— {d}</li>)}
+                {capability.notForYou.map((d: string) => <li key={d}>— {d}</li>)}
               </ul>
             </div>
           </div>

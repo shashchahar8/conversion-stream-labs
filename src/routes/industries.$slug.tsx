@@ -70,7 +70,7 @@ function IndustryPage() {
             <div>
               <SectionHeading eyebrow="The commercial problem" headline="Where growth quietly leaks." body={industry.commercialProblem} />
               <ul className="mt-8 space-y-3 border-t border-border">
-                {industry.painPoints.map((p) => (
+                {industry.painPoints.map((p: string) => (
                   <li key={p} className="border-b border-border py-3"><span className="mr-3 text-accent">—</span>{p}</li>
                 ))}
               </ul>
@@ -78,7 +78,7 @@ function IndustryPage() {
             <div>
               <SectionHeading eyebrow="Consequences" headline="What it costs the business." />
               <ul className="mt-8 space-y-3 border-t border-border">
-                {industry.consequences.map((p) => (
+                {industry.consequences.map((p: string) => (
                   <li key={p} className="border-b border-border py-3"><span className="mr-3 text-accent">—</span>{p}</li>
                 ))}
               </ul>
@@ -91,7 +91,7 @@ function IndustryPage() {
         <Container>
           <SectionHeading eyebrow="Growth system" headline={`The ${industry.shortName.toLowerCase()} pipeline, engineered end to end.`} />
           <div className="mt-12">
-            <SystemDiagram stages={industry.systemStages.map((s) => ({ name: s }))} />
+            <SystemDiagram stages={industry.systemStages.map((s: string) => ({ name: s }))} />
           </div>
         </Container>
       </section>
@@ -100,7 +100,7 @@ function IndustryPage() {
         <Container>
           <SectionHeading eyebrow="Relevant capabilities" headline="What gets built and operated." />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {relatedCaps.map((c) => (
+            {relatedCaps.map((c: string) => (
               <Link key={c.slug} to="/capabilities/$slug" params={{ slug: c.slug }} className="group rounded-2xl border border-border bg-card p-6 hover:border-foreground/40 transition-colors">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">{c.eyebrow}</p>
                 <h3 className="mt-3 font-display text-xl">{c.name}</h3>
@@ -117,13 +117,13 @@ function IndustryPage() {
             <div>
               <p className="eyebrow">Qualification</p>
               <ul className="mt-4 space-y-2 text-sm">
-                {industry.qualification.map((q) => <li key={q}>— {q}</li>)}
+                {industry.qualification.map((q: string) => <li key={q}>— {q}</li>)}
               </ul>
             </div>
             <div>
               <p className="eyebrow">Not a fit</p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {industry.exclusions.map((q) => <li key={q}>— {q}</li>)}
+                {industry.exclusions.map((q: string) => <li key={q}>— {q}</li>)}
               </ul>
             </div>
             <div>
