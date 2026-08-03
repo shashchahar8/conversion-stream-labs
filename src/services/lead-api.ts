@@ -2,18 +2,19 @@ import type { LeadSubmission, LeadSubmissionResponse } from "@/types/lead";
 import { submitLeadMock } from "./mock-lead-api";
 
 /**
- * Typed lead API client. Base URL configured via VITE_LEAD_API_BASE_URL.
- * Falls back to the mock adapter when no base URL is configured, so the
- * front end works locally without Codex having wired the backend yet.
+ * Typed lead API client. Production always uses the real API. The mock is
+ * available only when explicitly enabled during local development.
  */
 const baseUrl = import.meta.env.VITE_LEAD_API_BASE_URL as string | undefined;
+const mockEnabled = import.meta.env.DEV && import.meta.env.VITE_ENABLE_LEAD_API_MOCK === "true";
 
 export async function submitLead(payload: LeadSubmission): Promise<LeadSubmissionResponse> {
-  if (!baseUrl) {
+  if (mockEnabled) {
     return submitLeadMock(payload);
   }
 
-  const res = await fetch(`${baseUrl.replace(/\/$/, "")}/api/leads`, {
+  const endpoint = baseUrl ? `${baseUrl.replace(/\/$/, "")}/api/leads` : "/api/leads";
+  const res = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),

@@ -33,6 +33,7 @@ import { Route as GrowthPartnersPhysiotherapyClinicsRouteImport } from './routes
 import { Route as GrowthPartnersSlugRouteImport } from './routes/growth-partners.$slug'
 import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
 import { Route as InsightsCategoryCategorySlugRouteImport } from './routes/insights.category.$categorySlug'
+import { Route as ApiLeadsStartRouteImport } from './routes/api/leads/start'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -158,6 +159,11 @@ const InsightsCategoryCategorySlugRoute =
     path: '/insights/category/$categorySlug',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiLeadsStartRoute = ApiLeadsStartRouteImport.update({
+  id: '/api/leads/start',
+  path: '/api/leads/start',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -183,6 +189,7 @@ export interface FileRoutesByFullPath {
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/work/': typeof WorkIndexRoute
+  '/api/leads/start': typeof ApiLeadsStartRoute
   '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
 }
 export interface FileRoutesByTo {
@@ -209,6 +216,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/work': typeof WorkIndexRoute
+  '/api/leads/start': typeof ApiLeadsStartRoute
   '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
 }
 export interface FileRoutesById {
@@ -236,6 +244,7 @@ export interface FileRoutesById {
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/work/': typeof WorkIndexRoute
+  '/api/leads/start': typeof ApiLeadsStartRoute
   '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
 }
 export interface FileRouteTypes {
@@ -264,6 +273,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/insights/'
     | '/work/'
+    | '/api/leads/start'
     | '/insights/category/$categorySlug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -290,6 +300,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/insights'
     | '/work'
+    | '/api/leads/start'
     | '/insights/category/$categorySlug'
   id:
     | '__root__'
@@ -316,6 +327,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/insights/'
     | '/work/'
+    | '/api/leads/start'
     | '/insights/category/$categorySlug'
   fileRoutesById: FileRoutesById
 }
@@ -343,6 +355,7 @@ export interface RootRouteChildren {
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   WorkIndexRoute: typeof WorkIndexRoute
+  ApiLeadsStartRoute: typeof ApiLeadsStartRoute
   InsightsCategoryCategorySlugRoute: typeof InsightsCategoryCategorySlugRoute
 }
 
@@ -516,6 +529,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsCategoryCategorySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/leads/start': {
+      id: '/api/leads/start'
+      path: '/api/leads/start'
+      fullPath: '/api/leads/start'
+      preLoaderRoute: typeof ApiLeadsStartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -544,6 +564,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesIndexRoute: IndustriesIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   WorkIndexRoute: WorkIndexRoute,
+  ApiLeadsStartRoute: ApiLeadsStartRoute,
   InsightsCategoryCategorySlugRoute: InsightsCategoryCategorySlugRoute,
 }
 export const routeTree = rootRouteImport

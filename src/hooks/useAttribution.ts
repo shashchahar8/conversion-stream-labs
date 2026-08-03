@@ -14,6 +14,9 @@ interface StoredAttribution {
   campaignId?: string;
   creativeId?: string;
   adClickId?: string;
+  gclid?: string;
+  fbclid?: string;
+  msclkid?: string;
   firstVisitTimestamp: string;
 }
 
@@ -27,7 +30,10 @@ function readParams(url: URL) {
     utmTerm: q.get("utm_term") ?? undefined,
     campaignId: q.get("cid") ?? undefined,
     creativeId: q.get("creative") ?? undefined,
-    adClickId: q.get("gclid") ?? q.get("fbclid") ?? q.get("msclkid") ?? undefined,
+    adClickId: q.get("gclid") ?? undefined,
+    gclid: q.get("gclid") ?? undefined,
+    fbclid: q.get("fbclid") ?? undefined,
+    msclkid: q.get("msclkid") ?? undefined,
   };
 }
 
@@ -58,7 +64,12 @@ export function useAttribution() {
 
   const build = useMemo(
     () =>
-      (variant: FormVariant, placement: FormPlacement, bottleneck?: string): LeadAttribution => {
+      (
+        variant: FormVariant,
+        placement: FormPlacement,
+        bottleneck?: string,
+        ctaLocation?: string,
+      ): LeadAttribution => {
         const currentUrl = typeof window !== "undefined" ? window.location.href : "";
         const pageSlug = typeof window !== "undefined" ? window.location.pathname : "";
         return {
@@ -74,10 +85,14 @@ export function useAttribution() {
           campaignId: stored?.campaignId,
           creativeId: stored?.creativeId,
           adClickId: stored?.adClickId,
+          gclid: stored?.gclid,
+          fbclid: stored?.fbclid,
+          msclkid: stored?.msclkid,
           firstVisitTimestamp: stored?.firstVisitTimestamp ?? new Date().toISOString(),
           submissionTimestamp: new Date().toISOString(),
           formVariant: variant,
           formPlacement: placement,
+          ctaLocation,
           bottleneck,
         };
       },

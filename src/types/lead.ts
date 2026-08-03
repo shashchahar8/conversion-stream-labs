@@ -91,10 +91,14 @@ export interface LeadAttribution {
   campaignId?: string;
   creativeId?: string;
   adClickId?: string;
+  gclid?: string;
+  fbclid?: string;
+  msclkid?: string;
   firstVisitTimestamp: string;
   submissionTimestamp: string;
   formVariant: FormVariant;
   formPlacement: FormPlacement;
+  ctaLocation?: string;
   bottleneck?: string;
 }
 
