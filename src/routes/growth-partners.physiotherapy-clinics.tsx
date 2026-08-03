@@ -12,8 +12,7 @@ import { buildSeo } from "@/lib/seo";
 export const Route = createFileRoute("/growth-partners/physiotherapy-clinics")({
   head: () =>
     buildSeo({
-      title:
-        "Physiotherapy Clinic Google Ads — $100 First Month | Stonehurst Lane",
+      title: "Physiotherapy Clinic Google Ads — $100 First Month | Stonehurst Lane",
       description:
         "A founding offer for established physiotherapy clinics: $100 first month of Google Ads management, plus a website for the first five qualifying clinics. No lock-in contract.",
       path: "/growth-partners/physiotherapy-clinics",

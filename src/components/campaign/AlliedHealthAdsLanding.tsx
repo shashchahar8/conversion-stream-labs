@@ -427,6 +427,8 @@ export function AlliedHealthAdsLanding({ content }: { content: AdsLandingContent
         </Container>
       </footer>
 
+      <div className="h-[calc(4.5rem+env(safe-area-inset-bottom))] lg:hidden" aria-hidden />
+
       <StickyCampaignCta
         label={content.stickyCtaLabel}
         onClick={() => openForm("sticky-mobile", "sticky-mobile")}

@@ -88,7 +88,7 @@ export const physiotherapyAdsLanding: AdsLandingContent = {
       {
         title: "No lock-in contract",
         description:
-          "The engagement continues on its merits. You are not committed to a fixed term.",
+          "Standard management fees apply after month one. There is no lock-in contract.",
       },
     ],
     clarifications: [
@@ -165,8 +165,7 @@ export const physiotherapyAdsLanding: AdsLandingContent = {
     },
     {
       question: "Is there a lock-in contract?",
-      answer:
-        "No. There is no lock-in contract. The engagement continues month to month on its merits.",
+      answer: "Standard management fees apply after month one. There is no lock-in contract.",
     },
     {
       question: "What is included in the website?",

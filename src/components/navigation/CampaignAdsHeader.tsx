@@ -22,7 +22,7 @@ export function CampaignAdsHeader({ ctaLabel, onCtaClick, onPhoneClick }: Campai
           <a
             href={site.phone.href}
             onClick={onPhoneClick}
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
           >
             <Phone className="size-4" aria-hidden />
             <span className="hidden sm:inline">{site.phone.display}</span>
