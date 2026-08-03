@@ -1,11 +1,26 @@
 import type { CampaignConfig } from "@/types/content";
 
 const foundingOffer: CampaignConfig["offerStack"] = [
-  { title: "$100 first-month campaign management", description: "Reduce initial risk while we prove the system." },
-  { title: "Conversion-focused website", description: "Included in the founding partner arrangement." },
-  { title: "Three months of foundational SEO", description: "Technical and local foundations included." },
-  { title: "Founding-partner ongoing SEO rate", description: "Locked-in rate for the life of the engagement." },
-  { title: "CRM and pipeline foundation", description: "Configured around the actual sales motion." },
+  {
+    title: "$100 first-month campaign management",
+    description: "Reduce initial risk while we prove the system.",
+  },
+  {
+    title: "Conversion-focused website",
+    description: "Included in the founding partner arrangement.",
+  },
+  {
+    title: "Three months of foundational SEO",
+    description: "Technical and local foundations included.",
+  },
+  {
+    title: "Founding-partner ongoing SEO rate",
+    description: "Locked-in rate for the life of the engagement.",
+  },
+  {
+    title: "CRM and pipeline foundation",
+    description: "Configured around the actual sales motion.",
+  },
   { title: "Growth Systems Audit", description: "Delivered before any spend is committed." },
 ];
 
@@ -56,7 +71,12 @@ function makeFoundingCampaign(
     ],
     exclusions: standardExclusions,
     riskReversal: foundingRiskReversal,
-    faqIds: ["global-what", "management-offer-includes", "no-qualifying-result", "founding-seo-rate"],
+    faqIds: [
+      "global-what",
+      "management-offer-includes",
+      "no-qualifying-result",
+      "founding-seo-rate",
+    ],
     trelloRoutingKey: `founding-${slug}`,
     formDefinitionId: "default-lead-form",
     ctaLabel,
@@ -68,6 +88,87 @@ function makeFoundingCampaign(
 }
 
 export const campaigns: CampaignConfig[] = [
+  {
+    ...makeFoundingCampaign(
+      "physiotherapy-clinics",
+      "allied-health",
+      "Founding Growth Partner — Physiotherapy",
+      "Build a predictable source of patient enquiries beyond referrals.",
+      "Google Ads, conversion infrastructure and follow-up for established physiotherapy clinics with room to grow.",
+      "Established physiotherapy clinics with practitioner capacity and a defined service area.",
+      "Referral demand can be inconsistent and difficult to scale. A connected acquisition and follow-up system gives established clinics a more controllable path to suitable patient enquiries.",
+      "Apply for the Physiotherapy Clinic Growth Audit",
+      "Google Ads, conversion infrastructure and follow-up for established physiotherapy clinics with room to grow.",
+    ),
+    mechanism:
+      "Stonehurst Lane connects Google Ads, conversion infrastructure and follow-up so suitable local enquiries can move from search to booked appointment with less leakage.",
+    offerStack: [
+      {
+        title: "$100 first month of Google Ads management",
+        description: "A reduced first-month management fee for qualifying physiotherapy clinics.",
+      },
+      {
+        title: "Website included for the first five qualifying clinics",
+        description:
+          "Available at no additional cost to the first five qualifying physiotherapy clinics.",
+      },
+    ],
+    scopeNotes: [
+      "Advertising spend is separate and paid to the platform directly.",
+      "The standard management fee applies after month one.",
+      "There is no lock-in contract.",
+      "Qualification applies.",
+    ],
+    faqIds: [
+      "global-what",
+      "clinic-google-ads-offer",
+      "clinic-website-scope",
+      "no-qualifying-result",
+      "founding-seo-rate",
+    ],
+    trelloRoutingKey: "founding-physiotherapy-clinics",
+  },
+  {
+    ...makeFoundingCampaign(
+      "podiatry-clinics",
+      "allied-health",
+      "Founding Growth Partner — Podiatry",
+      "Generate more suitable local patient enquiries for your podiatry clinic.",
+      "A connected acquisition system for established podiatry clinics with practitioner capacity and a defined service area.",
+      "Established podiatry clinics with practitioner capacity and a defined service area.",
+      "Local demand is often fragmented across referrals, directories and search. A connected acquisition system helps established clinics turn relevant local intent into suitable enquiries.",
+      "Apply for the Podiatry Clinic Growth Audit",
+      "A connected acquisition system for established podiatry clinics with practitioner capacity and a defined service area.",
+    ),
+    mechanism:
+      "Stonehurst Lane connects Google Ads, conversion infrastructure and follow-up around the clinic's service area so suitable local enquiries have a clear path to booking.",
+    offerStack: [
+      {
+        title: "$100 first month of Google Ads management",
+        description: "A reduced first-month management fee for qualifying podiatry clinics.",
+      },
+      {
+        title: "Website included for the first five qualifying clinics",
+        description:
+          "Available at no additional cost to the first five qualifying podiatry clinics.",
+      },
+    ],
+    scopeNotes: [
+      "Advertising spend is separate and paid to the platform directly.",
+      "The standard management fee applies after month one.",
+      "There is no lock-in contract.",
+      "Qualification applies.",
+    ],
+    faqIds: [
+      "global-what",
+      "clinic-google-ads-offer",
+      "clinic-website-scope",
+      "no-qualifying-result",
+      "founding-seo-rate",
+    ],
+    trelloRoutingKey: "founding-podiatry-clinics",
+  },
+  // Legacy campaign retained temporarily for existing direct links. Do not use for new CTAs or indexing.
   makeFoundingCampaign(
     "physiotherapy-and-podiatry",
     "allied-health",
@@ -160,10 +261,22 @@ export const campaigns: CampaignConfig[] = [
     mechanism:
       "A shared-upside arrangement aligns incentives around attributable procedure revenue rather than lead volume. Attribution infrastructure is a prerequisite, not an add-on.",
     offerStack: [
-      { title: "Shared-upside commercial model", description: "Aligned to attributable procedure revenue." },
-      { title: "Compliance-reviewed campaigns", description: "All creative and copy subject to compliance review." },
-      { title: "Attribution infrastructure", description: "CRM, call-tracking and revenue reconciliation." },
-      { title: "Clinic-side operational readiness support", description: "Intake, follow-up and reporting." },
+      {
+        title: "Shared-upside commercial model",
+        description: "Aligned to attributable procedure revenue.",
+      },
+      {
+        title: "Compliance-reviewed campaigns",
+        description: "All creative and copy subject to compliance review.",
+      },
+      {
+        title: "Attribution infrastructure",
+        description: "CRM, call-tracking and revenue reconciliation.",
+      },
+      {
+        title: "Clinic-side operational readiness support",
+        description: "Intake, follow-up and reporting.",
+      },
     ],
     scopeNotes: [
       "Media spend is the clinic's responsibility.",

@@ -4,7 +4,6 @@ export const mainNav = [
   { label: "Industries", to: "/industries" },
   { label: "Work", to: "/work" },
   { label: "Approach", to: "/approach" },
-  { label: "Insights", to: "/insights" },
   { label: "About", to: "/about" },
 ] as const;
 
@@ -13,7 +12,6 @@ export const footerNav = {
     { label: "Growth Systems", to: "/growth-systems" },
     { label: "Approach", to: "/approach" },
     { label: "Work", to: "/work" },
-    { label: "Insights", to: "/insights" },
   ],
   capabilities: [
     { label: "Websites", to: "/capabilities/websites" },
@@ -41,7 +39,5 @@ export const footerNav = {
   legal: [
     { label: "Privacy", to: "/privacy" },
     { label: "Terms", to: "/terms" },
-    { label: "Cookies", to: "/cookie-policy" },
-    { label: "Disclaimer", to: "/disclaimer" },
   ],
 } as const;

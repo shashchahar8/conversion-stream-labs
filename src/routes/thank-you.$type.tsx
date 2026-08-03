@@ -44,11 +44,20 @@ function ThankYou() {
         <Container>
           <div className="max-w-2xl">
             <span className="eyebrow">Received</span>
-            <h1 className="mt-6 font-display text-5xl md:text-6xl leading-[1.02]">{message.headline}</h1>
+            <h1 className="mt-6 font-display text-5xl md:text-6xl leading-[1.02]">
+              {message.headline}
+            </h1>
             <p className="mt-6 text-xl text-muted-foreground">{message.body}</p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link to="/" className="rounded-full bg-primary px-5 py-2.5 text-sm text-primary-foreground">Return home</Link>
-              <Link to="/insights" className="rounded-full border border-input px-5 py-2.5 text-sm">Read insights</Link>
+              <Link
+                to="/"
+                className="rounded-full bg-primary px-5 py-2.5 text-sm text-primary-foreground"
+              >
+                Return home
+              </Link>
+              <Link to="/work" className="rounded-full border border-input px-5 py-2.5 text-sm">
+                View our work
+              </Link>
             </div>
           </div>
         </Container>

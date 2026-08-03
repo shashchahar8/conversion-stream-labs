@@ -51,12 +51,18 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
           >
             Try again
           </button>
-          <a href="/" className="inline-flex items-center justify-center rounded-full border border-input px-5 py-2.5 text-sm font-medium">
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-full border border-input px-5 py-2.5 text-sm font-medium"
+          >
             Go home
           </a>
         </div>
@@ -76,14 +82,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: site.name },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Test - SL" },
-      { property: "og:title", content: "Test - SL" },
-      { name: "twitter:title", content: "Test - SL" },
-      { name: "description", content: "A premium React web application for a growth agency, driving predictable revenue for service businesses." },
-      { property: "og:description", content: "A premium React web application for a growth agency, driving predictable revenue for service businesses." },
-      { name: "twitter:description", content: "A premium React web application for a growth agency, driving predictable revenue for service businesses." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2afdd46d-1ec8-48a0-b241-0ffe33167ee2/id-preview-cd59c9ad--96e208f7-c090-471b-b83a-9f518342b470.lovable.app-1784890302741.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2afdd46d-1ec8-48a0-b241-0ffe33167ee2/id-preview-cd59c9ad--96e208f7-c090-471b-b83a-9f518342b470.lovable.app-1784890302741.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -104,6 +102,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: site.name,
           description: site.description,
           email: site.contactEmail,
+          telephone: site.phone.value,
+          url: site.url,
         }),
       },
     ],
