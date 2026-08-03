@@ -34,6 +34,8 @@ import { Route as GrowthPartnersSlugRouteImport } from './routes/growth-partners
 import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
 import { Route as InsightsCategoryCategorySlugRouteImport } from './routes/insights.category.$categorySlug'
 import { Route as ApiLeadsStartRouteImport } from './routes/api/leads/start'
+import { Route as ApiLeadsLeadIdRouteImport } from './routes/api/leads/$leadId'
+import { Route as ApiIntegrationsCalcomWebhookRouteImport } from './routes/api/integrations/calcom/webhook'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -164,6 +166,17 @@ const ApiLeadsStartRoute = ApiLeadsStartRouteImport.update({
   path: '/api/leads/start',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLeadsLeadIdRoute = ApiLeadsLeadIdRouteImport.update({
+  id: '/api/leads/$leadId',
+  path: '/api/leads/$leadId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiIntegrationsCalcomWebhookRoute =
+  ApiIntegrationsCalcomWebhookRouteImport.update({
+    id: '/api/integrations/calcom/webhook',
+    path: '/api/integrations/calcom/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -189,8 +202,10 @@ export interface FileRoutesByFullPath {
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/work/': typeof WorkIndexRoute
+  '/api/leads/$leadId': typeof ApiLeadsLeadIdRoute
   '/api/leads/start': typeof ApiLeadsStartRoute
   '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
+  '/api/integrations/calcom/webhook': typeof ApiIntegrationsCalcomWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -216,8 +231,10 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/work': typeof WorkIndexRoute
+  '/api/leads/$leadId': typeof ApiLeadsLeadIdRoute
   '/api/leads/start': typeof ApiLeadsStartRoute
   '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
+  '/api/integrations/calcom/webhook': typeof ApiIntegrationsCalcomWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -244,8 +261,10 @@ export interface FileRoutesById {
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/work/': typeof WorkIndexRoute
+  '/api/leads/$leadId': typeof ApiLeadsLeadIdRoute
   '/api/leads/start': typeof ApiLeadsStartRoute
   '/insights/category/$categorySlug': typeof InsightsCategoryCategorySlugRoute
+  '/api/integrations/calcom/webhook': typeof ApiIntegrationsCalcomWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -273,8 +292,10 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/insights/'
     | '/work/'
+    | '/api/leads/$leadId'
     | '/api/leads/start'
     | '/insights/category/$categorySlug'
+    | '/api/integrations/calcom/webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -300,8 +321,10 @@ export interface FileRouteTypes {
     | '/industries'
     | '/insights'
     | '/work'
+    | '/api/leads/$leadId'
     | '/api/leads/start'
     | '/insights/category/$categorySlug'
+    | '/api/integrations/calcom/webhook'
   id:
     | '__root__'
     | '/'
@@ -327,8 +350,10 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/insights/'
     | '/work/'
+    | '/api/leads/$leadId'
     | '/api/leads/start'
     | '/insights/category/$categorySlug'
+    | '/api/integrations/calcom/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -355,8 +380,10 @@ export interface RootRouteChildren {
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   WorkIndexRoute: typeof WorkIndexRoute
+  ApiLeadsLeadIdRoute: typeof ApiLeadsLeadIdRoute
   ApiLeadsStartRoute: typeof ApiLeadsStartRoute
   InsightsCategoryCategorySlugRoute: typeof InsightsCategoryCategorySlugRoute
+  ApiIntegrationsCalcomWebhookRoute: typeof ApiIntegrationsCalcomWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -536,6 +563,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiLeadsStartRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/leads/$leadId': {
+      id: '/api/leads/$leadId'
+      path: '/api/leads/$leadId'
+      fullPath: '/api/leads/$leadId'
+      preLoaderRoute: typeof ApiLeadsLeadIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/integrations/calcom/webhook': {
+      id: '/api/integrations/calcom/webhook'
+      path: '/api/integrations/calcom/webhook'
+      fullPath: '/api/integrations/calcom/webhook'
+      preLoaderRoute: typeof ApiIntegrationsCalcomWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -564,8 +605,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesIndexRoute: IndustriesIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   WorkIndexRoute: WorkIndexRoute,
+  ApiLeadsLeadIdRoute: ApiLeadsLeadIdRoute,
   ApiLeadsStartRoute: ApiLeadsStartRoute,
   InsightsCategoryCategorySlugRoute: InsightsCategoryCategorySlugRoute,
+  ApiIntegrationsCalcomWebhookRoute: ApiIntegrationsCalcomWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

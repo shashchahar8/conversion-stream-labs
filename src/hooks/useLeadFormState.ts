@@ -11,6 +11,7 @@ export type LeadFormValues = Record<string, string | boolean | string[] | undefi
 export function useLeadFormState(formId: string) {
   const key = STORAGE_PREFIX + formId;
   const [values, setValues] = useState<LeadFormValues>({});
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -19,6 +20,8 @@ export function useLeadFormState(formId: string) {
       if (raw) setValues(JSON.parse(raw) as LeadFormValues);
     } catch {
       /* ignore */
+    } finally {
+      setHydrated(true);
     }
   }, [key]);
 
@@ -46,5 +49,5 @@ export function useLeadFormState(formId: string) {
     }
   }, [key]);
 
-  return { values, update, reset };
+  return { values, update, reset, hydrated };
 }

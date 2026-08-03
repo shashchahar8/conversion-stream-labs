@@ -1,9 +1,11 @@
 import { describe, expect, test } from "bun:test";
 import {
   readServerEnv,
+  readCalcomEnv,
   readTrelloEnv,
   ServerConfigurationError,
   TrelloConfigurationError,
+  CalcomConfigurationError,
 } from "../../src/lib/server-env.server";
 
 describe("readServerEnv", () => {
@@ -51,6 +53,13 @@ describe("readServerEnv", () => {
       SL_TRELLO_API_TOKEN: "api-token",
       SL_TRELLO_BOARD_ID: "board-id",
       SL_TRELLO_NEW_LEAD_LIST_ID: "list-id",
+    });
+  });
+
+  test("keeps the Cal.com webhook secret server-only and independently validated", () => {
+    expect(() => readCalcomEnv({})).toThrow(CalcomConfigurationError);
+    expect(readCalcomEnv({ SL_CALCOM_WEBHOOK_SECRET: "a-long-webhook-secret" })).toEqual({
+      SL_CALCOM_WEBHOOK_SECRET: "a-long-webhook-secret",
     });
   });
 });

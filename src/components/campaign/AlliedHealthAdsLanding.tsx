@@ -18,6 +18,7 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 import { site } from "@/config/site";
 import type { AdsLandingContent } from "@/types/campaign-landing";
 import type { FormPlacement } from "@/types/lead";
+import { alliedHealthLeadFunnels } from "@/config/lead-funnels";
 
 /**
  * Reusable allied-health paid-traffic landing template.
@@ -30,11 +31,13 @@ import type { FormPlacement } from "@/types/lead";
 export function AlliedHealthAdsLanding({ content }: { content: AdsLandingContent }) {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<FormPlacement>("cta-modal");
+  const [ctaLocation, setCtaLocation] = useState("hero");
   const analytics = useAnalytics();
 
   const openForm = useCallback(
     (nextPlacement: FormPlacement, ctaLocation: string) => {
       setPlacement(nextPlacement);
+      setCtaLocation(ctaLocation);
       setOpen(true);
       analytics({
         name: "primary_cta_click",
@@ -47,6 +50,12 @@ export function AlliedHealthAdsLanding({ content }: { content: AdsLandingContent
         campaign: content.campaignId,
         industry: content.industryId,
         formPlacement: nextPlacement,
+      });
+      analytics({
+        name: "funnel_opened",
+        campaign: content.campaignId,
+        industry: content.industryId,
+        ctaLocation,
       });
     },
     [analytics, content.campaignId, content.industryId],
@@ -440,6 +449,13 @@ export function AlliedHealthAdsLanding({ content }: { content: AdsLandingContent
         placement={placement}
         campaignId={content.campaignId}
         industryId={content.industryId}
+        ctaLocation={ctaLocation}
+        funnelConfig={
+          content.campaignId === "physiotherapy-clinics" ||
+          content.campaignId === "podiatry-clinics"
+            ? alliedHealthLeadFunnels[content.campaignId]
+            : undefined
+        }
       />
     </div>
   );

@@ -19,6 +19,8 @@ export interface PersistedLead {
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
+  utmContent?: string;
+  utmTerm?: string;
   fbclid?: string;
   ctaLocation?: string;
   createdAt: string;
@@ -68,6 +70,8 @@ export function createLeadStartRepository(
     "utm_source",
     "utm_medium",
     "utm_campaign",
+    "utm_content",
+    "utm_term",
     "fbclid",
     "cta_location",
     "created_at",
@@ -176,6 +180,8 @@ function mapPersistedLead(data: Record<string, unknown>): PersistedLead {
     utmSource: optionalString(data.utm_source),
     utmMedium: optionalString(data.utm_medium),
     utmCampaign: optionalString(data.utm_campaign),
+    utmContent: optionalString(data.utm_content),
+    utmTerm: optionalString(data.utm_term),
     fbclid: optionalString(data.fbclid),
     ctaLocation: optionalString(data.cta_location),
     createdAt: String(data.created_at),

@@ -5,8 +5,15 @@ import { industries } from "@/content/industries";
 const campaignIds = new Set<string>(campaigns.map((campaign) => campaign.slug));
 const industryIds = new Set<string>(industries.map((industry) => industry.slug));
 
-const optionalText = (maximum: number) => z.string().trim().max(maximum).optional();
-const optionalUrl = z.string().trim().url().max(2048).optional();
+const optionalText = (maximum: number) =>
+  z.preprocess(
+    (value) => (value === null || value === "" ? undefined : value),
+    z.string().trim().max(maximum).optional(),
+  );
+const optionalUrl = z.preprocess(
+  (value) => (value === null || value === "" ? undefined : value),
+  z.string().trim().url().max(2048).optional(),
+);
 
 export const leadStartSchema = z
   .object({

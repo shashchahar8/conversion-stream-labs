@@ -29,6 +29,7 @@ export interface TrelloCardResult {
 
 export interface TrelloClient {
   createCard(card: TrelloCardDraft): Promise<TrelloCardResult>;
+  updateCard(cardId: string, card: TrelloCardDraft): Promise<void>;
 }
 
 export class TrelloIntegrationError extends Error {
@@ -86,6 +87,22 @@ export function createTrelloClient(options: TrelloClientOptions = {}): TrelloCli
         throw new TrelloIntegrationError("invalid_response");
       }
       return parsed.data;
+    },
+    async updateCard(cardId, card) {
+      const response = await trelloFetch(
+        `${TRELLO_API_ORIGIN}/1/cards/${encodeURIComponent(cardId)}`,
+        {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            Authorization: buildAuthorizationHeader(env),
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body: new URLSearchParams({ name: card.name, desc: card.desc }),
+        },
+        fetchImpl,
+      );
+      assertSuccessfulStatus(response);
     },
   };
 }

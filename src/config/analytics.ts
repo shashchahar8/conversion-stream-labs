@@ -19,7 +19,18 @@ export type AnalyticsEventName =
   | "form_submit_failure"
   | "calendar_view"
   | "phone_click"
-  | "email_click";
+  | "email_click"
+  | "funnel_opened"
+  | "funnel_step_viewed"
+  | "funnel_step_completed"
+  | "funnel_step_failed"
+  | "lead_started"
+  | "lead_start_failed"
+  | "qualification_saved"
+  | "callback_requested"
+  | "cal_embed_opened"
+  | "cal_booking_client_reported"
+  | "funnel_completed";
 
 export interface AnalyticsEvent {
   name: AnalyticsEventName;

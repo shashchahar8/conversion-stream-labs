@@ -1,4 +1,5 @@
 import type { LeadStartRepository, PersistedLead } from "./lead-start.server";
+import type { QualifiedLead } from "./lead-qualification.server";
 import { buildTrelloCard } from "./trello-card";
 import {
   createTrelloClient,
@@ -45,6 +46,21 @@ export async function syncLeadToTrello(
     return "synced";
   } catch {
     await recordFailure(repository, lead.id, "database_update_failed", attemptedAt);
+    return "failed";
+  }
+}
+
+export async function refreshLeadTrelloCard(
+  lead: QualifiedLead,
+  dependencies: { createClient?: () => TrelloClient } = {},
+): Promise<TrelloSyncResult> {
+  if (!lead.trelloCardId) return "failed";
+  try {
+    const client = (dependencies.createClient ?? createTrelloClient)();
+    await client.updateCard(lead.trelloCardId, buildTrelloCard(lead));
+    return "synced";
+  } catch (error) {
+    logSyncFailure(error instanceof TrelloIntegrationError ? error.code : "trello_unavailable");
     return "failed";
   }
 }
