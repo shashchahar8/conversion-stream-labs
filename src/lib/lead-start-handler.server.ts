@@ -4,11 +4,14 @@ import {
   LeadStartConflictError,
   type LeadStartRepository,
 } from "./lead-start.server";
+import { syncLeadToTrello } from "./trello-sync.server";
+import { createTrelloClient, type TrelloClient } from "./trello.server";
 
 const MAX_BODY_BYTES = 16_384;
 
 interface LeadStartHandlerDependencies {
   createRepository?: () => LeadStartRepository;
+  createTrelloClient?: () => TrelloClient;
   now?: () => Date;
 }
 
@@ -61,7 +64,11 @@ export async function handleLeadStartRequest(
     const repository = (dependencies.createRepository ?? createLeadStartRepository)();
     const existing = await repository.findBySessionId(parsed.data.sessionId);
     if (existing) {
-      return jsonResponse(200, { success: true, leadId: existing.id });
+      return jsonResponse(200, {
+        success: true,
+        leadId: existing.id,
+        trelloSync: existing.trelloSyncStatus,
+      });
     }
 
     try {
@@ -69,12 +76,20 @@ export async function handleLeadStartRequest(
         parsed.data,
         (dependencies.now ?? (() => new Date()))().toISOString(),
       );
-      return jsonResponse(201, { success: true, leadId: created.id });
+      const trelloSync = await syncLeadToTrello(created, repository, {
+        createClient: dependencies.createTrelloClient ?? createTrelloClient,
+        now: dependencies.now,
+      });
+      return jsonResponse(201, { success: true, leadId: created.id, trelloSync });
     } catch (error) {
       if (!(error instanceof LeadStartConflictError)) throw error;
       const racedLead = await repository.findBySessionId(parsed.data.sessionId);
       if (!racedLead) throw error;
-      return jsonResponse(200, { success: true, leadId: racedLead.id });
+      return jsonResponse(200, {
+        success: true,
+        leadId: racedLead.id,
+        trelloSync: racedLead.trelloSyncStatus,
+      });
     }
   } catch {
     console.error("[lead-start] persistence unavailable");

@@ -1,5 +1,10 @@
 import { describe, expect, test } from "bun:test";
-import { readServerEnv, ServerConfigurationError } from "../../src/lib/server-env.server";
+import {
+  readServerEnv,
+  readTrelloEnv,
+  ServerConfigurationError,
+  TrelloConfigurationError,
+} from "../../src/lib/server-env.server";
 
 describe("readServerEnv", () => {
   test("rejects missing server configuration without exposing field details", () => {
@@ -30,5 +35,22 @@ describe("readServerEnv", () => {
         SUPABASE_SECRET_KEY: "legacy-secret",
       }),
     ).toThrow(ServerConfigurationError);
+  });
+
+  test("requires all Trello runtime values", () => {
+    expect(() => readTrelloEnv({})).toThrow(TrelloConfigurationError);
+    expect(
+      readTrelloEnv({
+        SL_TRELLO_API_KEY: "api-key",
+        SL_TRELLO_API_TOKEN: "api-token",
+        SL_TRELLO_BOARD_ID: "board-id",
+        SL_TRELLO_NEW_LEAD_LIST_ID: "list-id",
+      }),
+    ).toEqual({
+      SL_TRELLO_API_KEY: "api-key",
+      SL_TRELLO_API_TOKEN: "api-token",
+      SL_TRELLO_BOARD_ID: "board-id",
+      SL_TRELLO_NEW_LEAD_LIST_ID: "list-id",
+    });
   });
 });

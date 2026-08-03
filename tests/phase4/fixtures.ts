@@ -18,3 +18,23 @@ export const validLeadStartPayload = {
   ctaLocation: "hero",
   privacyConsent: true as const,
 };
+
+export const persistedLead = {
+  id: "67e55044-10b1-426f-9247-bb680e5fe0c8",
+  status: "started" as const,
+  campaignId: "podiatry-clinics",
+  industryId: "allied-health",
+  firstName: "Jordan",
+  organisationName: "Harbour Podiatry",
+  email: "jordan@example.com",
+  phone: "+61 400 000 000",
+  firstLandingPage: "https://stonehurstlane.com/growth-partners/podiatry-clinics",
+  currentLandingPage: "https://stonehurstlane.com/growth-partners/podiatry-clinics",
+  utmSource: "google",
+  utmMedium: "cpc",
+  utmCampaign: "podiatry-sydney",
+  fbclid: "test-fbclid",
+  ctaLocation: "hero",
+  createdAt: "2026-08-03T00:00:00.000Z",
+  trelloSyncStatus: "pending" as const,
+};
