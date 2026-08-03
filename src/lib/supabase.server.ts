@@ -4,7 +4,7 @@ import { getServerEnv } from "./server-env.server";
 export function createServerSupabaseClient() {
   const env = getServerEnv();
 
-  return createClient(env.SUPABASE_URL, env.SUPABASE_SECRET_KEY, {
+  return createClient(env.SL_SUPABASE_URL, env.SL_SUPABASE_SECRET_KEY, {
     auth: {
       persistSession: false,
       autoRefreshToken: false,

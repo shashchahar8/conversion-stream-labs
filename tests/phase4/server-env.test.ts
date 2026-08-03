@@ -8,8 +8,27 @@ describe("readServerEnv", () => {
     try {
       readServerEnv({});
     } catch (error) {
-      expect(String(error)).not.toContain("SUPABASE_SECRET_KEY");
-      expect(String(error)).not.toContain("SUPABASE_URL");
+      expect(String(error)).not.toContain("SL_SUPABASE_SECRET_KEY");
+      expect(String(error)).not.toContain("SL_SUPABASE_URL");
     }
+  });
+
+  test("uses only the Stonehurst Lane runtime variable names", () => {
+    expect(
+      readServerEnv({
+        SL_SUPABASE_URL: "https://example.supabase.co",
+        SL_SUPABASE_SECRET_KEY: "test-secret",
+      }),
+    ).toEqual({
+      SL_SUPABASE_URL: "https://example.supabase.co",
+      SL_SUPABASE_SECRET_KEY: "test-secret",
+    });
+
+    expect(() =>
+      readServerEnv({
+        SUPABASE_URL: "https://legacy.supabase.co",
+        SUPABASE_SECRET_KEY: "legacy-secret",
+      }),
+    ).toThrow(ServerConfigurationError);
   });
 });

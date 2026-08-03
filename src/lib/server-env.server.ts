@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 const serverEnvSchema = z.object({
-  SUPABASE_URL: z.string().url(),
-  SUPABASE_SECRET_KEY: z.string().min(1),
+  SL_SUPABASE_URL: z.string().url(),
+  SL_SUPABASE_SECRET_KEY: z.string().min(1),
 });
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
