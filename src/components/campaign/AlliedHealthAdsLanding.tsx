@@ -395,7 +395,7 @@ export function AlliedHealthAdsLanding({ content }: { content: AdsLandingContent
                   asChild
                   size="lg"
                   variant="outline"
-                  className="h-12 rounded-full border-white/25 px-7 text-bone hover:bg-white/10"
+                  className="h-12 rounded-full border-primary-foreground/40 bg-transparent px-7 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground focus-visible:ring-ring focus-visible:ring-offset-background active:bg-primary-foreground/15 disabled:opacity-60"
                   onClick={() => trackPhone("final-cta")}
                 >
                   <a href={site.phone.href}>
