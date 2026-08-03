@@ -28,6 +28,7 @@ import { Route as ThankYouTypeRouteImport } from './routes/thank-you.$type'
 import { Route as SharedUpsideCosmeticSurgeryRouteImport } from './routes/shared-upside.cosmetic-surgery'
 import { Route as InsightsArticleSlugRouteImport } from './routes/insights.$articleSlug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
+import { Route as GrowthPartnersPodiatryClinicsRouteImport } from './routes/growth-partners.podiatry-clinics'
 import { Route as GrowthPartnersPhysiotherapyClinicsRouteImport } from './routes/growth-partners.physiotherapy-clinics'
 import { Route as GrowthPartnersSlugRouteImport } from './routes/growth-partners.$slug'
 import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
@@ -129,6 +130,12 @@ const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
   path: '/industries/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GrowthPartnersPodiatryClinicsRoute =
+  GrowthPartnersPodiatryClinicsRouteImport.update({
+    id: '/growth-partners/podiatry-clinics',
+    path: '/growth-partners/podiatry-clinics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GrowthPartnersPhysiotherapyClinicsRoute =
   GrowthPartnersPhysiotherapyClinicsRouteImport.update({
     id: '/growth-partners/physiotherapy-clinics',
@@ -166,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
   '/growth-partners/physiotherapy-clinics': typeof GrowthPartnersPhysiotherapyClinicsRoute
+  '/growth-partners/podiatry-clinics': typeof GrowthPartnersPodiatryClinicsRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$articleSlug': typeof InsightsArticleSlugRoute
   '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
@@ -191,6 +199,7 @@ export interface FileRoutesByTo {
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
   '/growth-partners/physiotherapy-clinics': typeof GrowthPartnersPhysiotherapyClinicsRoute
+  '/growth-partners/podiatry-clinics': typeof GrowthPartnersPodiatryClinicsRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$articleSlug': typeof InsightsArticleSlugRoute
   '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
@@ -217,6 +226,7 @@ export interface FileRoutesById {
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/growth-partners/$slug': typeof GrowthPartnersSlugRoute
   '/growth-partners/physiotherapy-clinics': typeof GrowthPartnersPhysiotherapyClinicsRoute
+  '/growth-partners/podiatry-clinics': typeof GrowthPartnersPodiatryClinicsRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$articleSlug': typeof InsightsArticleSlugRoute
   '/shared-upside/cosmetic-surgery': typeof SharedUpsideCosmeticSurgeryRoute
@@ -244,6 +254,7 @@ export interface FileRouteTypes {
     | '/capabilities/$slug'
     | '/growth-partners/$slug'
     | '/growth-partners/physiotherapy-clinics'
+    | '/growth-partners/podiatry-clinics'
     | '/industries/$slug'
     | '/insights/$articleSlug'
     | '/shared-upside/cosmetic-surgery'
@@ -269,6 +280,7 @@ export interface FileRouteTypes {
     | '/capabilities/$slug'
     | '/growth-partners/$slug'
     | '/growth-partners/physiotherapy-clinics'
+    | '/growth-partners/podiatry-clinics'
     | '/industries/$slug'
     | '/insights/$articleSlug'
     | '/shared-upside/cosmetic-surgery'
@@ -294,6 +306,7 @@ export interface FileRouteTypes {
     | '/capabilities/$slug'
     | '/growth-partners/$slug'
     | '/growth-partners/physiotherapy-clinics'
+    | '/growth-partners/podiatry-clinics'
     | '/industries/$slug'
     | '/insights/$articleSlug'
     | '/shared-upside/cosmetic-surgery'
@@ -320,6 +333,7 @@ export interface RootRouteChildren {
   CapabilitiesSlugRoute: typeof CapabilitiesSlugRoute
   GrowthPartnersSlugRoute: typeof GrowthPartnersSlugRoute
   GrowthPartnersPhysiotherapyClinicsRoute: typeof GrowthPartnersPhysiotherapyClinicsRoute
+  GrowthPartnersPodiatryClinicsRoute: typeof GrowthPartnersPodiatryClinicsRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   InsightsArticleSlugRoute: typeof InsightsArticleSlugRoute
   SharedUpsideCosmeticSurgeryRoute: typeof SharedUpsideCosmeticSurgeryRoute
@@ -467,6 +481,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/growth-partners/podiatry-clinics': {
+      id: '/growth-partners/podiatry-clinics'
+      path: '/growth-partners/podiatry-clinics'
+      fullPath: '/growth-partners/podiatry-clinics'
+      preLoaderRoute: typeof GrowthPartnersPodiatryClinicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/growth-partners/physiotherapy-clinics': {
       id: '/growth-partners/physiotherapy-clinics'
       path: '/growth-partners/physiotherapy-clinics'
@@ -513,6 +534,7 @@ const rootRouteChildren: RootRouteChildren = {
   GrowthPartnersSlugRoute: GrowthPartnersSlugRoute,
   GrowthPartnersPhysiotherapyClinicsRoute:
     GrowthPartnersPhysiotherapyClinicsRoute,
+  GrowthPartnersPodiatryClinicsRoute: GrowthPartnersPodiatryClinicsRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   InsightsArticleSlugRoute: InsightsArticleSlugRoute,
   SharedUpsideCosmeticSurgeryRoute: SharedUpsideCosmeticSurgeryRoute,
@@ -527,13 +549,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
