@@ -25,15 +25,34 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} {site.name}. All rights reserved.</span>
-          <a href={`mailto:${site.contactEmail}`} className="hover:text-bone">{site.contactEmail}</a>
+          <span>
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
+          </span>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <a href={`mailto:${site.contactEmail}`} className="hover:text-bone">
+              {site.contactEmail}
+            </a>
+            <a
+              href={site.phone.href}
+              aria-label={`Call Stonehurst Lane on ${site.phone.display}`}
+              className="hover:text-bone"
+            >
+              {site.phone.display}
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
 
-function FooterColumn({ title, items }: { title: string; items: readonly { label: string; to: string }[] }) {
+function FooterColumn({
+  title,
+  items,
+}: {
+  title: string;
+  items: readonly { label: string; to: string }[];
+}) {
   return (
     <div>
       <h4 className="text-xs uppercase tracking-widest text-bone/70">{title}</h4>

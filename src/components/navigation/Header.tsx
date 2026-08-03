@@ -22,7 +22,9 @@ export function Header() {
               key={item.to}
               to={item.to}
               activeProps={{ className: "text-foreground" }}
-              inactiveProps={{ className: "text-muted-foreground hover:text-foreground transition-colors" }}
+              inactiveProps={{
+                className: "text-muted-foreground hover:text-foreground transition-colors",
+              }}
             >
               {item.label}
             </Link>
@@ -64,6 +66,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <a
+            href={site.phone.href}
+            aria-label={`Call Stonehurst Lane on ${site.phone.display}`}
+            className="rounded-md px-3 py-3 text-base text-foreground hover:bg-muted"
+          >
+            Call {site.phone.display}
+          </a>
           <Button
             className="mt-4 rounded-full"
             onClick={() => {

@@ -28,12 +28,29 @@ function Contact() {
                 Speak to a partner.
               </h1>
               <p className="mt-6 text-lg text-muted-foreground">
-                For new engagements, use the audit form. For existing partners, email the account team directly.
+                For new engagements, use the audit form. For existing partners, email the account
+                team directly.
               </p>
               <dl className="mt-10 space-y-6 border-t border-border pt-6">
                 <div>
                   <dt className="text-xs uppercase tracking-widest text-muted-foreground">Email</dt>
-                  <dd className="mt-1"><a href={`mailto:${site.contactEmail}`} className="gold-underline">{site.contactEmail}</a></dd>
+                  <dd className="mt-1">
+                    <a href={`mailto:${site.contactEmail}`} className="gold-underline">
+                      {site.contactEmail}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">Phone</dt>
+                  <dd className="mt-1">
+                    <a
+                      href={site.phone.href}
+                      aria-label={`Call Stonehurst Lane on ${site.phone.display}`}
+                      className="gold-underline"
+                    >
+                      {site.phone.display}
+                    </a>
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-xs uppercase tracking-widest text-muted-foreground">Hours</dt>

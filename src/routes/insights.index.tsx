@@ -11,6 +11,7 @@ export const Route = createFileRoute("/insights/")({
       description:
         "Practical writing on acquisition, conversion, pipeline design and follow-up for high-value service businesses.",
       path: "/insights",
+      noindex: insights.length === 0,
     }),
   component: InsightsIndex,
 });
@@ -26,7 +27,8 @@ function InsightsIndex() {
               Commercial thinking, no thought-leadership theatre.
             </h1>
             <p className="mt-6 max-w-2xl text-xl text-muted-foreground">
-              Articles appear once they meet the editorial bar. Until then, this page stays deliberately quiet.
+              Articles appear once they meet the editorial bar. Until then, this page stays
+              deliberately quiet.
             </p>
           </div>
           {insights.length === 0 ? (
@@ -37,7 +39,9 @@ function InsightsIndex() {
             <ul className="mt-14 grid gap-6 md:grid-cols-2">
               {insights.map((a) => (
                 <li key={a.slug} className="rounded-2xl border border-border bg-card p-6">
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">{a.category}</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                    {a.category}
+                  </p>
                   <h2 className="mt-2 font-display text-2xl">{a.title}</h2>
                   <p className="mt-2 text-sm text-muted-foreground">{a.excerpt}</p>
                 </li>

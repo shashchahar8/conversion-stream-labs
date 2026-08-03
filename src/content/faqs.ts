@@ -51,6 +51,20 @@ export const faqs: FaqItem[] = [
       "Campaign management for the first month at a reduced rate to lower initial risk. It does not include ad spend, software or third-party costs. Full inclusions are defined in the engagement agreement.",
   },
   {
+    id: "clinic-google-ads-offer",
+    category: "campaign",
+    question: "What does the $100 offer cover?",
+    answer:
+      "The $100 applies to the first month of Google Ads management. Advertising spend is paid separately. Standard management fees apply from month two.",
+  },
+  {
+    id: "clinic-website-scope",
+    category: "campaign",
+    question: "What is included with the website offer?",
+    answer:
+      "The included website is provided within an agreed scope, confirmed during the initial consultation.",
+  },
+  {
     id: "what-is-included-website",
     category: "offer",
     question: "What is included in the founding-partner website?",

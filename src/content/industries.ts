@@ -21,7 +21,7 @@ export const industries: IndustryConfig[] = [
       "Predictable booked appointments through connected acquisition, conversion and follow-up — without discount marketing.",
     primaryCta: {
       label: "Apply for the Clinic Growth Systems Audit",
-      href: "/growth-partners/physiotherapy-and-podiatry",
+      href: "/growth-partners/physiotherapy-clinics",
     },
     secondaryCta: { label: "See how the system works", href: "/growth-systems" },
     commercialProblem:
@@ -59,7 +59,7 @@ export const industries: IndustryConfig[] = [
     complianceNote:
       "We do not collect patient information through the Stonehurst Lane website. All marketing complies with Ahpra and AHPRA-adjacent advertising guidelines.",
     formDefinitionId: "default-lead-form",
-    campaignId: "physiotherapy-and-podiatry",
+    campaignId: "physiotherapy-clinics",
     seo: {
       title: "Allied Health Growth Systems | Stonehurst Lane",
       description:
